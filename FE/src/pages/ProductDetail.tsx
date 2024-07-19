@@ -43,7 +43,7 @@ const ProductDetail = ({}: Props) => {
           <p className="text-xl text-gray-800 mb-4">Giá: {product.price}</p>
           <p className="text-gray-600 mb-6">{product.description}</p>
           <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300">
-            Mua
+            Thêm vào giỏ hàng
           </button>
         </div>
       </div>

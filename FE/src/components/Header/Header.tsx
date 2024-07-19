@@ -105,7 +105,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="mr-6">
-                  <Link to="/">Giới thiệu</Link>
+                  <Link to="/about-us">Giới thiệu</Link>
                 </li>
                 <li>
                   <Link
