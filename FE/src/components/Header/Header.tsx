@@ -96,13 +96,11 @@ const Header = () => {
                 </li>
                 <li className="mr-6">
                   <Link to="/" className="text-gray-800 hover:text-gray-900">
-                    Danh mục
+                    Cửa hàng
                   </Link>
                 </li>
                 <li className="mr-6">
-                  <Link to="/" className="text-gray-800 hover:text-gray-900">
-                    Sản phẩm
-                  </Link>
+                  <Link to="/blog">Blog</Link>
                 </li>
                 <li className="mr-6">
                   <Link to="/about-us">Giới thiệu</Link>

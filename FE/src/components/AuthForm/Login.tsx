@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { instance } from "../../apis";
 import { User } from "../../interfaces/User";
 import { loginSchema } from "../../schemas/authSchema";
@@ -82,6 +82,15 @@ const Login = () => {
           >
             Đăng nhập
           </button>
+          <div className="text-center flex justify-center">
+            <p className="mr-2">Bạn chưa có tài khoản?</p>
+            <Link
+              to="/users/register"
+              className="text-blue-500 hover:underline"
+            >
+              Đăng ký
+            </Link>
+          </div>
         </div>
       </form>
     </div>

@@ -62,16 +62,6 @@ const Footer = () => {
                     Popular Dress
                   </a>
                 </li>
-                <li className="my-2">
-                  <a href="#" className="text-white hover:text-gray-400">
-                    Gym Accessories
-                  </a>
-                </li>
-                <li className="my-2">
-                  <a href="#" className="text-white hover:text-gray-400">
-                    Sport Shoes
-                  </a>
-                </li>
               </ul>
             </div>
 

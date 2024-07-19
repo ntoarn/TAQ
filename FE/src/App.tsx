@@ -4,11 +4,9 @@ import { instance } from "./apis";
 import "./App.scss";
 import Login from "./components/AuthForm/Login";
 import Register from "./components/AuthForm/Register";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
 import LayoutAdmin from "./components/Layout/LayoutAdmin/LayoutAdmin";
 import { ICategory } from "./interfaces/Category";
-import { Category, Product } from "./interfaces/Product";
+import { Product } from "./interfaces/Product";
 import Dashboard from "./pages/admin/Dashboard";
 import ProductForm from "./pages/admin/ProductForm";
 import Home from "./pages/Home";
@@ -19,6 +17,7 @@ import Order from "./pages/admin/Order";
 import User from "./pages/admin/User";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
+import Blog from "./pages/Blog";
 
 function App() {
   const nav = useNavigate();
@@ -83,6 +82,7 @@ function App() {
           <Route index element={<Home products={products} />} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/blog" element={<Blog />} />
           <Route
             path="/product-detail/:id"
             element={<ProductDetail products={products} />}
