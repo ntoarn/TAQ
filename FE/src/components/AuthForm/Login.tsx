@@ -1,67 +1,91 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { instance } from '../../apis';
-import { User } from '../../interfaces/User';
-import { loginSchema } from '../../schemas/authSchema';
-import styles from './AuthForm.module.scss';
-import { toast } from 'react-toastify';
-const Login = () => {
-    const nav = useNavigate();
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm<User>({
-        resolver: zodResolver(loginSchema)
-    })
-    const onSubmit = async (data: User) => {
-        try {
-            const res = await instance.post("/login", data);
-                    if (res.data) {
-                        localStorage.setItem("user", JSON.stringify(res.data));
-                        localStorage.setItem("accessToken", res.data.accessToken);
-                        toast.success("Đăng nhập thành công");
-                        setTimeout(() => {
-                            nav("/");
-                        }, 2000);
-                    } else {
-                        throw new Error("Đăng nhập thất bại");
-                    }
-        } catch (error) {
-            console.error(error);
-        }
-    }
-  return (
-    <div className={styles.container}>
-    <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Login</h1>
-        <div className={`mb-3 form-group ${styles.formGroup}`}>
-            <label htmlFor="email" className={styles.formLabel}>
-                Email
-            </label>
-            <input type="email" className={`form-control ${styles.formControl}`} id="email"
-                {...register("email", { required: true })}
-            />
-            {errors.email?.message && <p className={styles.textDanger}>{errors.email?.message}</p>}
-        </div>
-        <div className={`mb-3 form-group ${styles.formGroup}`}>
-            <label htmlFor="password" className={styles.formLabel}>
-                Password
-            </label>
-            <input type="password" className={`form-control ${styles.formControl}`} id="password"
-                {...register("password", { required: true })}
-            />
-            {errors.password?.message && <p className={styles.textDanger}>{errors.password?.message}</p>}
-        </div>
-        <div className={`mb-3 form-group ${styles.formGroup}`}>
-            <button className={`btn btn-primary ${styles.btnPrimary}`} type='submit'>
-                Login
-            </button>
-        </div>
-    </form>
-</div>
-  )
-}
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { instance } from "../../apis";
+import { User } from "../../interfaces/User";
+import { loginSchema } from "../../schemas/authSchema";
+import { toast } from "react-toastify";
 
-export default Login
+const Login = () => {
+  const nav = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<User>({
+    resolver: zodResolver(loginSchema),
+  });
+
+  const onSubmit = async (data: User) => {
+    try {
+      const res = await instance.post("/login", data);
+      if (res.data) {
+        localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("accessToken", res.data.accessToken);
+        toast.success("Đăng nhập thành công");
+        setTimeout(() => {
+          nav("/");
+        }, 2000);
+      } else {
+        throw new Error("Đăng nhập thất bại");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="bg-white p-6 rounded-lg shadow-md w-full max-w-md"
+      >
+        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700 mb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring ${
+              errors.email ? "border-red-500" : "border-gray-300"
+            }`}
+            {...register("email", { required: true })}
+          />
+          {errors.email?.message && (
+            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+          )}
+        </div>
+        <div className="mb-4">
+          <label htmlFor="password" className="block text-gray-700 mb-2">
+            Mật khẩu
+          </label>
+          <input
+            type="password"
+            id="password"
+            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring ${
+              errors.password ? "border-red-500" : "border-gray-300"
+            }`}
+            {...register("password", { required: true })}
+          />
+          {errors.password?.message && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.password.message}
+            </p>
+          )}
+        </div>
+        <div className="mb-4">
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+          >
+            Đăng nhập
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Login;
