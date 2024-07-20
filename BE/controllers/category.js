@@ -31,7 +31,7 @@ export const createCategory = async (req, res) => {
 
 export const getCategoryById = async (req, res) => {
     try {
-        const category = await CategoryModel.findById(res.params.id).populate("products")
+        const category = await CategoryModel.findById(req.params.id).populate("products")
         if(!category){
             return res.status(400).json({
                 message: "Lay danh muc that bai",
