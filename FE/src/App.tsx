@@ -18,6 +18,7 @@ import User from "./pages/admin/User";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
+import Shop from "./pages/Shop";
 
 function App() {
   const nav = useNavigate();
@@ -83,6 +84,8 @@ function App() {
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/shop" element={<Shop />} />
+
           <Route
             path="/product-detail/:id"
             element={<ProductDetail products={products} />}
