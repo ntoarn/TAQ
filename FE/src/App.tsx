@@ -18,11 +18,18 @@ import User from "./pages/admin/User";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
+import ListColor from "./pages/admin/ListColor";
+import { IColor } from "./interfaces/Color";
+import ListSize from "./pages/admin/ListSize";
+import { ISize } from "./interfaces/Size";
 
 function App() {
   const nav = useNavigate();
   const [products, setProducts] = useState<Product[]>([] as Product[]);
   const [categories, SetCategories] = useState<ICategory[]>([] as ICategory[]);
+  const [color, setColor] = useState<IColor[]>([] as IColor[]);
+  const [size, setSize] = useState<ISize[]>([] as ISize[]);
+  // Fetch Product Start
   const fetchProducts = async () => {
     const { data } = await instance.get("/products");
     setProducts(data.data);
@@ -30,6 +37,9 @@ function App() {
   useEffect(() => {
     fetchProducts();
   }, []);
+  // Fetch Product End
+
+  // Fetch Categories Start
   const fetchCategories = async () => {
     const { data } = await instance.get("/categories");
     SetCategories(data.data);
@@ -37,6 +47,27 @@ function App() {
   useEffect(() => {
     fetchCategories();
   }, []);
+  // Fetch Categories End
+
+  // Fetch Color Start
+  const fetchColor = async () => {
+    const { data } = await instance.get("/color");
+    setColor(data.data);
+  };
+  useEffect(() => {
+    fetchColor();
+  }, []);
+  // Fetch Color End
+
+  // Fetch Size Start
+  const fetchSize = async () => {
+    const { data } = await instance.get("/size");
+    setSize(data.data);
+  };
+  useEffect(() => {
+    fetchSize();
+  }, []);
+  // Fetch Size End
   const handleRemove = async (id: String) => {
     if (window.confirm("Ban chac chua???")) {
       try {
@@ -100,6 +131,8 @@ function App() {
                 onDel={handleRemove}
                 categories={categories}
                 products={products}
+                color={color}
+                size={size}
               />
             }
           />
@@ -115,6 +148,9 @@ function App() {
             path="/admin/category"
             element={<ListCategory categories={categories} />}
           />
+          <Route path="/admin/color" element={<ListColor color={color} />} />
+          <Route path="/admin/size" element={<ListSize size={size} />} />
+
           <Route path="/admin/order" element={<Order />} />
           <Route path="/admin/users" element={<User />} />
         </Route>

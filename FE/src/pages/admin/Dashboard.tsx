@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
-import { Category, Product } from "../../interfaces/Product";
+import { Category, Color, Product, Size } from "../../interfaces/Product";
 
 type Props = {
   products: Product[];
   categories: Category[];
+  color: Color[];
+  size: Size[];
   onDel: (id: string) => void;
 };
 
-const Dashboard = ({ products, categories, onDel }: Props) => {
+const Dashboard = ({ products, categories, color, size, onDel }: Props) => {
   return (
     <div className="container mx-auto mt-4 col-span-9">
       <table className="min-w-full bg-white border border-gray-300">
@@ -18,7 +20,9 @@ const Dashboard = ({ products, categories, onDel }: Props) => {
             <th className="py-2">Name</th>
             <th className="py-2">Price</th>
             <th className="py-2">Description</th>
-            <th className="py-2">Danh mục</th>
+            <th className="py-2">Color</th>
+            <th className="py-2">Size</th>
+            <th className="py-2">Category</th>
             <th className="py-2">Action</th>
           </tr>
         </thead>
@@ -39,6 +43,10 @@ const Dashboard = ({ products, categories, onDel }: Props) => {
               <td className="py-2">{product.title}</td>
               <td className="py-2">${product.price}</td>
               <td className="py-2 truncate max-w-xs">{product.description}</td>
+              <td className="py-2 truncate max-w-xs">
+                {product.colorId?.colorName}
+              </td>
+              <td className="py-2 truncate max-w-xs">{product.sizeId?.size}</td>
               <td className="py-2 truncate max-w-xs">
                 {product.categoryId?.name}
               </td>

@@ -1,18 +1,12 @@
 import mongoose from "mongoose";
 
-const categorySchema = new mongoose.Schema(
+const colorSchema = new mongoose.Schema(
   {
-    name: {
+    color: {
       type: String,
       required: true,
       unique: true,
       defaultValue: "UnCategorized",
-    },
-    slug: {
-      type: String,
-      required: true,
-      unique: true,
-      defaultValue: "uncategorized",
     },
     products: [
       {
@@ -23,4 +17,4 @@ const categorySchema = new mongoose.Schema(
   },
   { versionKey: false, timestamps: true }
 );
-export default mongoose.model("Category", categorySchema);
+export default mongoose.model("Color", colorSchema);
