@@ -95,7 +95,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="mr-6">
-                  <Link to="/" className="text-gray-800 hover:text-gray-900">
+                  <Link to="/shop" className="text-gray-800 hover:text-gray-900">
                     Cửa hàng
                   </Link>
                 </li>

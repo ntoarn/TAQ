@@ -22,9 +22,9 @@ const LayoutAdmin = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link className="flex items-center text-white hover:text-gray-300" to="/admin/product-add">
+                                <Link className="flex items-center text-white hover:text-gray-300" to="/admin/product">
                                     <FaProductHunt className="mr-2" />
-                                    Add Product
+                                     Product
                                 </Link>
                             </li>
                             <li>

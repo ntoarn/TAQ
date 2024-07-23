@@ -18,75 +18,26 @@ import User from "./pages/admin/User";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
+import Shop from "./pages/Shop";
+import CategoryForm from "./pages/admin/CategoryForm";
+import ListProduct from "./pages/admin/ListProduct";
 
 function App() {
-  const nav = useNavigate();
-  const [products, setProducts] = useState<Product[]>([] as Product[]);
-  const [categories, SetCategories] = useState<ICategory[]>([] as ICategory[]);
-  const fetchProducts = async () => {
-    const { data } = await instance.get("/products");
-    setProducts(data.data);
-  };
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-  const fetchCategories = async () => {
-    const { data } = await instance.get("/categories");
-    SetCategories(data.data);
-  };
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-  const handleRemove = async (id: String) => {
-    if (window.confirm("Ban chac chua???")) {
-      try {
-        await instance.delete(`/products/${id}`);
-        setProducts(products.filter((product) => product._id !== id));
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-  const handleSubmitProduct = async (product: Product) => {
-    try {
-      if (product._id) {
-        await instance.patch(`/products/${product._id}`, product);
-      } else {
-        const res = await instance.post("/products/", product);
-        setProducts([...products, res.data.data]);
-      }
-      fetchProducts();
-      nav("/admin");
-    } catch (error) {
-      console.error("Failed to submit product:", error);
-    }
-  };
-  // order
-  // const Order = () => {
-  //   const [orders, setOrders] = useState(ordersData);
-
-  //   const handleDelete = (id: string) => {
-  //       setOrders(orders.filter(order => order._id !== id));
-  //   };
-
-  //   const handleEdit = (id: string) => {
-  //       // Logic để chỉnh sửa đơn hàng
-  //       console.log('Edit order with id:', id);
-  //   };
-
   return (
     <>
       <Routes>
         {/* client */}
         <Route path="/" element={<LayoutClient />}>
-          <Route index element={<Home products={products} />} />
+          <Route index element={<Home  />} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
-          <Route
+          <Route path="/shop" element={<Shop />} />
+
+          {/* <Route
             path="/product-detail/:id"
             element={<ProductDetail products={products} />}
-          />
+          /> */}
           <Route path="/users/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/users/login" element={<Login />} />
@@ -97,24 +48,30 @@ function App() {
             index
             element={
               <Dashboard
-                onDel={handleRemove}
-                categories={categories}
-                products={products}
               />
             }
           />
+          <Route path="/admin/product" element={<ListProduct/>}/>
           <Route
             path="/admin/product-add"
-            element={<ProductForm onSubmit={handleSubmitProduct} />}
+            element={<ProductForm />}
           />
           <Route
             path="/admin/product/edit/:id"
-            element={<ProductForm onSubmit={handleSubmitProduct} />}
+            element={<ProductForm/>}
           />
           <Route
             path="/admin/category"
-            element={<ListCategory categories={categories} />}
+            element={<ListCategory />}
           />
+           {/* <Route
+            path="/admin/categories-add"
+            element={<CategoryForm/>}
+          />
+          <Route
+            path="/admin/categories/edit/:id"
+            element={<CategoryForm />}
+          /> */}
           <Route path="/admin/order" element={<Order />} />
           <Route path="/admin/users" element={<User />} />
         </Route>

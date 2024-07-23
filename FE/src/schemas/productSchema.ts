@@ -6,6 +6,8 @@ const productSchema = z.object({
 	description: z.string().min(1, { message: "Không được bỏ trống dữ liệu" }),
 	image: z.any().optional(),
 	categoryId: z.string(),
+	colorId: z.string(),
+	sizeId: z.string(),
 });
 export default productSchema;
 

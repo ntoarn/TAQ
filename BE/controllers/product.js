@@ -28,7 +28,7 @@ export const getAllProduct = async (req, res) => {
 export const createProduct = async (req, res, next) => {
     try {
         console.log('Received data:', req.body); 
-
+  
         const product = await ProductModel.create(req.body);
         console.log('Product created:', product);
      
@@ -45,33 +45,33 @@ export const createProduct = async (req, res, next) => {
                 $push: { products: product._id },
             }, { new: true }).catch(err => { console.error('Error updating color:', err); return null; })
         ]);
-
+  
         if (!updateCategory) {
             console.error('Failed to update category:', product.categoryId);
             return res.status(400).json({
                 message: "Cập nhật danh mục sản phẩm thất bại",
             });
         }
-
+  
         if (!updateSize) {
             console.error('Failed to update size:', product.sizeId);
             return res.status(400).json({
                 message: "Cập nhật kích thước sản phẩm thất bại",
             });
         }
-
+  
         if (!updateColor) {
             console.error('Failed to update color:', product.colorId);
             return res.status(400).json({
                 message: "Cập nhật màu sản phẩm thất bại",
             });
         }
-
+  
         return res.status(201).json({
             message: "Tạo danh sách sản phẩm thành công",
             data: product
         });
-
+  
     } catch (error) {
         console.error('Error creating product:', error); // Log lỗi chi tiết
         return res.status(500).json({
@@ -79,8 +79,8 @@ export const createProduct = async (req, res, next) => {
             error: error.message,
         });
     }
-};
-
+  };
+  
 
 export const getProductById = async (req, res) => {
     try {

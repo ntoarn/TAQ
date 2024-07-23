@@ -1,13 +1,14 @@
 export interface Product {
     _id?: string;
-    title: string;
-    price: number;
-    description: string;
-    image: string;
-    colorId?: string;
-    sizeId?: string;
+    title?: string;
+    price?: number;
+    description?: string;
+    image?: string;
+    colorId?: Color;  
+    sizeId?: Size; 
     categoryId?: Category;
-}
+  }
+  
 export interface Category{
     _id?: string;
     name:string;
