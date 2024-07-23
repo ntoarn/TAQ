@@ -1,26 +1,22 @@
-import { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import { instance } from "./apis";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Login from "./components/AuthForm/Login";
 import Register from "./components/AuthForm/Register";
 import LayoutAdmin from "./components/Layout/LayoutAdmin/LayoutAdmin";
-import { ICategory } from "./interfaces/Category";
-import { Product } from "./interfaces/Product";
-import Dashboard from "./pages/admin/Dashboard";
-import ProductForm from "./pages/admin/ProductForm";
-import Home from "./pages/Home";
-import ProductDetail from "./pages/ProductDetail";
-import ListCategory from "./pages/admin/ListCategory";
 import LayoutClient from "./components/Layout/LayoutClient/LayoutClient";
-import Order from "./pages/admin/Order";
-import User from "./pages/admin/User";
-import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
-import Blog from "./pages/Blog";
-import Shop from "./pages/Shop";
 import CategoryForm from "./pages/admin/CategoryForm";
+import Dashboard from "./pages/admin/Dashboard";
+import ListCategory from "./pages/admin/ListCategory";
 import ListProduct from "./pages/admin/ListProduct";
+import Order from "./pages/admin/Order";
+import ProductForm from "./pages/admin/ProductForm";
+import User from "./pages/admin/User";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -33,6 +29,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
 
           {/* <Route
             path="/product-detail/:id"
@@ -64,14 +61,14 @@ function App() {
             path="/admin/category"
             element={<ListCategory />}
           />
-           {/* <Route
+           <Route
             path="/admin/categories-add"
             element={<CategoryForm/>}
           />
           <Route
             path="/admin/categories/edit/:id"
             element={<CategoryForm />}
-          /> */}
+          />
           <Route path="/admin/order" element={<Order />} />
           <Route path="/admin/users" element={<User />} />
         </Route>
