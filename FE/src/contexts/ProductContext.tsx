@@ -40,7 +40,7 @@ export const  ProductProvider = ({ children } : {children: React.ReactNode}) => 
             const response = await instance.post("/products/", product);
             dispatch({ type: 'ADD_PRODUCT', payload: response.data });
           }
-          nav("/admin");
+          nav("/admin/product");
         } catch (error: any) {
           if (error.response) {
             console.error("Server responded with a status:", error.response.status);
