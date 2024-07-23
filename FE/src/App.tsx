@@ -1,155 +1,52 @@
-import { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import { instance } from "./apis";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Login from "./components/AuthForm/Login";
 import Register from "./components/AuthForm/Register";
 import LayoutAdmin from "./components/Layout/LayoutAdmin/LayoutAdmin";
-import { ICategory } from "./interfaces/Category";
-import { Product } from "./interfaces/Product";
-import Dashboard from "./pages/admin/Dashboard";
-import ProductForm from "./pages/admin/ProductForm";
-import Home from "./pages/Home";
-import ProductDetail from "./pages/ProductDetail";
-import ListCategory from "./pages/admin/ListCategory";
 import LayoutClient from "./components/Layout/LayoutClient/LayoutClient";
-import Order from "./pages/admin/Order";
-import User from "./pages/admin/User";
-import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
+import Dashboard from "./pages/admin/Dashboard";
+import ListCategory from "./pages/admin/ListCategory";
+import ListProduct from "./pages/admin/ListProduct";
+import Order from "./pages/admin/Order";
+import ProductForm from "./pages/admin/ProductForm";
+import User from "./pages/admin/User";
 import Blog from "./pages/Blog";
-import ListColor from "./pages/admin/ListColor";
-import { IColor } from "./interfaces/Color";
-import ListSize from "./pages/admin/ListSize";
-import { ISize } from "./interfaces/Size";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
-  const nav = useNavigate();
-  const [products, setProducts] = useState<Product[]>([] as Product[]);
-  const [categories, SetCategories] = useState<ICategory[]>([] as ICategory[]);
-  const [color, setColor] = useState<IColor[]>([] as IColor[]);
-  const [size, setSize] = useState<ISize[]>([] as ISize[]);
-  // Fetch Product Start
-  const fetchProducts = async () => {
-    const { data } = await instance.get("/products");
-    setProducts(data.data);
-  };
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-  // Fetch Product End
-
-  // Fetch Categories Start
-  const fetchCategories = async () => {
-    const { data } = await instance.get("/categories");
-    SetCategories(data.data);
-  };
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-  // Fetch Categories End
-
-  // Fetch Color Start
-  const fetchColor = async () => {
-    const { data } = await instance.get("/color");
-    setColor(data.data);
-  };
-  useEffect(() => {
-    fetchColor();
-  }, []);
-  // Fetch Color End
-
-  // Fetch Size Start
-  const fetchSize = async () => {
-    const { data } = await instance.get("/size");
-    setSize(data.data);
-  };
-  useEffect(() => {
-    fetchSize();
-  }, []);
-  // Fetch Size End
-  const handleRemove = async (id: String) => {
-    if (window.confirm("Ban chac chua???")) {
-      try {
-        await instance.delete(`/products/${id}`);
-        setProducts(products.filter((product) => product._id !== id));
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-  const handleSubmitProduct = async (product: Product) => {
-    try {
-      if (product._id) {
-        await instance.patch(`/products/${product._id}`, product);
-      } else {
-        const res = await instance.post("/products/", product);
-        setProducts([...products, res.data.data]);
-      }
-      fetchProducts();
-      nav("/admin");
-    } catch (error) {
-      console.error("Failed to submit product:", error);
-    }
-  };
-  // order
-  // const Order = () => {
-  //   const [orders, setOrders] = useState(ordersData);
-
-  //   const handleDelete = (id: string) => {
-  //       setOrders(orders.filter(order => order._id !== id));
-  //   };
-
-  //   const handleEdit = (id: string) => {
-  //       // Logic để chỉnh sửa đơn hàng
-  //       console.log('Edit order with id:', id);
-  //   };
-
   return (
     <>
       <Routes>
         {/* client */}
         <Route path="/" element={<LayoutClient />}>
-          <Route index element={<Home products={products} />} />
+          <Route index element={<Home />} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
-          <Route
-            path="/product-detail/:id"
-            element={<ProductDetail products={products} />}
-          />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
+
+          <Route path="/product-detail/:id" element={<ProductDetail />} />
           <Route path="/users/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/users/login" element={<Login />} />
         </Route>
         {/* admin */}
         <Route path="/admin" element={<LayoutAdmin />}>
-          <Route
-            index
-            element={
-              <Dashboard
-                onDel={handleRemove}
-                categories={categories}
-                products={products}
-                color={color}
-                size={size}
-              />
-            }
-          />
-          <Route
-            path="/admin/product-add"
-            element={<ProductForm onSubmit={handleSubmitProduct} />}
-          />
-          <Route
-            path="/admin/product/edit/:id"
-            element={<ProductForm onSubmit={handleSubmitProduct} />}
-          />
-          <Route
-            path="/admin/category"
-            element={<ListCategory categories={categories} />}
-          />
-          <Route path="/admin/color" element={<ListColor color={color} />} />
-          <Route path="/admin/size" element={<ListSize size={size} />} />
+          <Route index element={<Dashboard />} />
+          <Route path="/admin/product" element={<ListProduct />} />
+          <Route path="/admin/product-add" element={<ProductForm />} />
+          <Route path="/admin/product/edit/:id" element={<ProductForm />} />
+          <Route path="/admin/category" element={<ListCategory />} />
+          {/* <Route path="/admin/categories-add" element={<CategoryForm />} /> */}
+          {/* <Route path="/admin/categories/edit/:id" element={<CategoryForm />} /> */}
+          {/* <Route path="/admin/color" element={<ListColor color={color} />} /> */}
+          {/* <Route path="/admin/size" element={<ListSize size={size} />} /> */}
 
           <Route path="/admin/order" element={<Order />} />
           <Route path="/admin/users" element={<User />} />

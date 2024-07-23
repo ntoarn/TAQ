@@ -37,10 +37,10 @@ const LayoutAdmin = () => {
               <li>
                 <Link
                   className="flex items-center text-white hover:text-gray-300"
-                  to="/admin/product-add"
+                  to="/admin/product"
                 >
                   <FaProductHunt className="mr-2" />
-                  Add Product
+                  Product
                 </Link>
               </li>
               <li>
@@ -50,24 +50,6 @@ const LayoutAdmin = () => {
                 >
                   <FaList className="mr-2" />
                   Categories
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="flex items-center text-white hover:text-gray-300"
-                  to="/admin/color"
-                >
-                  <FaList className="mr-2" />
-                  Color
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="flex items-center text-white hover:text-gray-300"
-                  to="/admin/size"
-                >
-                  <FaList className="mr-2" />
-                  Size
                 </Link>
               </li>
               <li>

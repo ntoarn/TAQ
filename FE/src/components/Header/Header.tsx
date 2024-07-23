@@ -95,7 +95,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="mr-6">
-                  <Link to="/" className="text-gray-800 hover:text-gray-900">
+                  <Link to="/shop" className="text-gray-800 hover:text-gray-900">
                     Cửa hàng
                   </Link>
                 </li>
@@ -131,7 +131,7 @@ const Header = () => {
                 <Link to="#" className="ml-4 lg:hidden">
                   <FaSearch className="text-gray-800" />
                 </Link>
-                <Link to="#" className="ml-4 relative">
+                <Link to="/cart" className="ml-4 relative">
                   <FaShoppingCart className="text-gray-800" size={30} />
                 </Link>
                 <div className="ml-4 relative">

@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { Product } from "./../interfaces/Product";
 import Banner from "./Banner";
 import "../App.scss";
+import { useContext } from "react";
+import { ProductContext } from './../contexts/ProductContext';
 
-type Props = {
-  products: Product[];
-};
 
-const Home = ({ products }: Props) => {
+
+const Home = () => {
+  const { state } = useContext(ProductContext)
   return (
     <>
       {/* banner */}
@@ -18,7 +19,7 @@ const Home = ({ products }: Props) => {
           Sản phẩm bán chạy
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {products.map((product) => (
+          {state.products.map((product) => (
             <div className="flex flex-col mb-4" key={product._id}>
               <div className="custom-card shadow-sm h-full">
                 <Link to={`/product-detail/${product._id}`}>

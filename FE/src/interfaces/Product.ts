@@ -1,13 +1,14 @@
 export interface Product {
   _id?: string;
-  title: string;
-  price: number;
-  description: string;
-  image: string;
+  title?: string;
+  price?: number;
+  description?: string;
+  image?: string;
   colorId?: Color;
   sizeId?: Size;
   categoryId?: Category;
 }
+
 export interface Category {
   _id?: string;
   name: string;
@@ -15,9 +16,8 @@ export interface Category {
 }
 export interface Color {
   _id?: string;
-  colorName: string;
+  color: string;
 }
-
 export interface Size {
   _id?: string;
   size: string;

@@ -1,17 +1,16 @@
 import { Router } from "express";
+
 import {
-  createCart,
-  deleteCart,
-  getAllCart,
-  getCartById,
-  updateCart,
+  addItemToCart,
+  getCartByUserId,
+  removeFromCart,
+  updateProductQuantity,
 } from "../controllers/cart.js";
 
 const cartRouter = Router();
-cartRouter.get("/", getAllCart);
-cartRouter.post("/", createCart);
-cartRouter.get("/:id", getCartById);
-cartRouter.put("/:id", updateCart);
-cartRouter.delete("/:id", deleteCart);
+cartRouter.get("/:userId", getCartByUserId);
+cartRouter.post("/add-to-cart", addItemToCart);
+cartRouter.put("/update-product-quantity", updateProductQuantity);
+cartRouter.delete("/remove-cart", removeFromCart);
 
 export default cartRouter;

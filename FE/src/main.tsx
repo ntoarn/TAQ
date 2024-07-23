@@ -4,12 +4,17 @@ import App from './App.tsx'
 import './index.scss'
 import { BrowserRouter } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
-<script src="./src/assets/js/index.js"></script>
+import { ProductProvider } from './contexts/ProductContext.tsx'
+import { CategoryProvider } from './contexts/CategoryContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-    <App />
+      <ProductProvider>
+        <CategoryProvider>
+          <App />
+        </CategoryProvider>
+      </ProductProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )
