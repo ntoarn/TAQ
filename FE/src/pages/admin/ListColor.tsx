@@ -21,7 +21,7 @@ const ListColor = ({ color }: Props) => {
             {color.map((color, index) => (
               <tr key={color._id} className="text-center">
                 <td className="py-2 px-4 border-b">{index + 1}</td>
-                <td className="py-2 px-4 border-b">{color.colorName}</td>
+                <td className="py-2 px-4 border-b">{color.color}</td>
 
                 <td className="py-2 px-4 border-b">
                   <Link
