@@ -26,6 +26,7 @@ const Register = () => {
       setTimeout(() => {
         nav("/login");
       }, 2000);
+      console.log(data);
     } catch (error) {
       toast.error("Đăng ký thất bại");
       console.error(error);
