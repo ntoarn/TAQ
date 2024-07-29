@@ -1,4 +1,4 @@
-import { ICategory } from "../interfaces/Category"
+import { ICategory } from "../contexts/Category"
 
 type State = {
     categories: ICategory[]

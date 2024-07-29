@@ -1,19 +1,17 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { instance } from "../../apis";
-import { ICategory } from "../../interfaces/Category";
 import { Product } from "../../interfaces/Product";
 import categorySchema from "../../schemas/categorySchema";
+import { ICategory } from "../../interfaces/Category";
+import { CategoryContext } from "../../contexts/CategoryContext";
 
-type Props = {
-  onSubmit: (product: Product) => void;
-};
 
-const CategoryForm = ({ onSubmit }: Props) => {
-  const { id } = useParams<{ id?: string }>();
-
+const CategoryForm = () => {
+  const { id } = useParams();
+ const {handleSubmitCategory} = useContext(CategoryContext)
   const {
     register,
     handleSubmit,
@@ -25,7 +23,7 @@ const CategoryForm = ({ onSubmit }: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await instance.get("/categories");
+        const { data } = await instance.get(`/categories/${id}`);
         reset(data.data);
       } catch (error) {
         console.error("Failed to fetch categories:", error);
@@ -34,7 +32,7 @@ const CategoryForm = ({ onSubmit }: Props) => {
   }, [id, reset]);
 
   const handleFormSubmit = (data: ICategory) => {
-    onSubmit({ ...data, _id: id});
+    handleSubmitCategory({ ...data, _id: id});
   };
 
   return (

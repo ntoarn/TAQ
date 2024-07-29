@@ -5,8 +5,11 @@ import { instance } from "../../apis";
 import { User } from "../../interfaces/User";
 import { loginSchema } from "../../schemas/authSchema";
 import { toast } from "react-toastify";
+import { useMutation } from "@tanstack/react-query";
+import useLocalStorage from "../../hooks/useStorage";
 
 const Login = () => {
+  const [, setUser] = useLocalStorage("user", {})
   const nav = useNavigate();
   const {
     register,
@@ -16,24 +19,24 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = async (data: User) => {
-    try {
-      const res = await instance.post("/login", data);
-      if (res.data) {
-        localStorage.setItem("user", JSON.stringify(res.data));
-        localStorage.setItem("accessToken", res.data.accessToken);
-        toast.success("Đăng nhập thành công");
-        setTimeout(() => {
-          nav("/");
-        }, 2000);
-      } else {
-        throw new Error("Đăng nhập thất bại");
-      }
-    } catch (error) {
-      console.error(error);
+  const {mutate} = useMutation({
+    mutationFn: async (data : User) => {
+      const res = await instance.post(`/login`, data)
+      return res.data;
+    },
+    onSuccess: (data) => {
+      setUser(data)
+      toast.success("Dang nhap thanh cong")
+      nav('/')
+    },
+    onError: (error) => {
+      toast.error("Đăng nhập thất bại! Vui lòng kiểm tra lại thông tin.");
     }
+  })
+  
+  const onSubmit = async (data: User) => {
+    mutate(data);
   };
-
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form

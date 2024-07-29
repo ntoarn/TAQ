@@ -47,40 +47,35 @@ export const getCategoryById = async (req, res) => {
   }
 };
 export const updateCategory = async (req, res) => {
-  try {
-    const category = await CategoryModel.findByIdAndUpdate(
-      res.params.id,
-      req.body,
-      {
-        new: true,
-      }
-    );
-    if (!category) {
-      return res.status(400).json({
-        message: "Update danh muc that bai",
-      });
+    try {
+        const category = await CategoryModel.findByIdAndUpdate(req.params.id, req.body, {
+            new: true
+        })
+        if(!category){
+            return res.status(400).json({
+                message: "Update danh muc that bai",
+                
+            })
+        }
+        return res.status(200).json({
+            message: "Update danh muc thanh cong",
+            data: category
+        })
+    } catch (error) {
+        console.log(error)
     }
-    return res.status(200).json({
-      message: "Update danh muc thanh cong",
-      data: category,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+}
 export const removeCategory = async (req, res) => {
-  try {
-    const category = await CategoryModel.findByIdAndDelete(res.params.id);
-    if (!category) {
-      return res.status(400).json({
-        message: "Xoa danh muc that bai",
-      });
+    try {
+        const category = await CategoryModel.findByIdAndDelete(req.params.id)
+        if(!category){
+            return res.status(400).json({
+                message: "Xoa danh muc that bai",
+                
+            })
+        }
+        return res.status(200).json(category)
+    } catch (error) {
+        console.log(error)
     }
-    return res.status(200).json({
-      message: "Xoa danh muc thanh cong",
-      data: category,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+}

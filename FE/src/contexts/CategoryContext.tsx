@@ -1,8 +1,8 @@
 import { createContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { instance } from "../apis";
-import { ICategory } from "../interfaces/Category";
 import categoryReducer from "../reducers/categoryReducer";
+import { ICategory } from "../interfaces/Category";
 
 type CategoryContextType = {
     state : { categories: ICategory[],}
@@ -40,7 +40,7 @@ export const  CategoryProvider = ({ children } : {children: React.ReactNode}) =>
             const response = await instance.post("/categories/", category);
             dispatch({ type: 'ADD_CATEGORY', payload: response.data });
           }
-          nav("/admin");
+          nav("/admin/category");
         } catch (error: any) {
           if (error.response) {
             console.error("Server responded with a status:", error.response.status);

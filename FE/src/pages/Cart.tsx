@@ -1,58 +1,83 @@
-import React from "react";
+import { useQuery } from '@tanstack/react-query';
+import { FiTrash } from 'react-icons/fi';
+import { instance } from '../apis';
+import useLocalStorage from '../hooks/useStorage';
+import { ICart } from '../interfaces/Cart';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 
 const Cart = () => {
+  const [user] = useLocalStorage("user", {});
+  const userId = user?.user?._id;
+
+  const { data, isLoading, isError } = useQuery<ICart>({
+    queryKey: ["cart", userId],
+    queryFn: async () => {
+      if (!userId) {
+        return { products: [] };
+      }
+
+      try {
+        const response = await instance.get<ICart>(`/cart/${userId}`);
+        console.log('API response:', response.data);
+        return response.data.products ? response.data : { products: [] };
+      } catch (error) {
+        console.error('Error fetching cart data:', error);
+        return { products: [] };
+      }
+    },
+    enabled: !!userId,
+  });
+
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error</p>;
   return (
-    <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Giỏ hàng của bạn</h1>
-      <div className="mt-4 p-4 border border-gray-300 rounded-lg shadow-lg">
-        <table className="min-w-full bg-white">
-          <thead>
-            <tr className="w-full bg-gray-100 text-left">
-              <th className="px-6 py-3 text-gray-600 font-semibold text-sm">
-                STT
-              </th>
-              <th className="px-6 py-3 text-gray-600 font-semibold text-sm">
-                Ảnh
-              </th>
-              <th className="px-6 py-3 text-gray-600 font-semibold text-sm">
-                Tên sản phẩm
-              </th>
-              <th className="px-6 py-3 text-gray-600 font-semibold text-sm">
-                Giá
-              </th>
-              <th className="px-6 py-3 text-gray-600 font-semibold text-sm">
-                Số lượng
-              </th>
-              <th className="px-6 py-3 text-gray-600 font-semibold text-sm">
-                Tổng tiền
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b hover:bg-gray-50 transition-colors">
-              <td className="px-6 py-4">1</td>
-              <td className="px-6 py-4">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Product"
-                  className="w-16 h-16 object-cover"
-                />
-              </td>
-              <td className="px-6 py-4">Product Name</td>
-              <td className="px-6 py-4">$100</td>
-              <td className="px-6 py-4">2</td>
-              <td className="px-6 py-4">$200</td>
-            </tr>
-          </tbody>
-        </table>
-        <div className="mt-4 text-right">
-          <button className="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition">
-            Thanh toán
-          </button>
+    <>
+      <h1 className="text-2xl font-bold mb-4">Your Shopping Cart</h1>
+      <div className="grid grid-cols-3 gap-4">
+        <div className="col-span-2 overflow-x-auto">
+          <table className="min-w-full bg-white border border-gray-200 text-center">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="w-1/12 px-4 py-2 border">#</th>
+                <th className="w-4/12 px-4 py-2 border">Tên sản phẩm</th>
+                <th className="w-2/12 px-4 py-2 border">Giá</th>
+                <th className="w-2/12 px-4 py-2 border">Số lượng</th>
+                <th className="w-3/12 px-4 py-2 border">Tổng giá</th>
+                {/* <th className="w-3/12 px-4 py-2 border">Action</th> */}
+              </tr>
+            </thead>
+            <tbody>
+              {data?.products?.map((product, index) => (
+                <tr key={product._id} className="border-b hover:bg-gray-100">
+                  <td className="px-4 py-2 border">{index + 1}</td>
+                  <td className="px-4 py-2 border">{product.title}</td>
+                  <td className="px-4 py-2 border">{product.price}</td>
+                  <td className="px-4 py-2 border">
+                    <div className="flex items-center justify-center space-x-2">
+                      <button className="text-red-500 hover:text-red-700 p-1">
+                        <FaMinus />
+                      </button>
+                      <span>{product.quantity}</span>
+                      <button className="text-blue-500 hover:text-blue-700 p-1">
+                        <FaPlus />
+                      </button>
+                    </div>
+                  </td>
+                  <td className="px-4 py-2 border">{product.price * product.quantity}</td>
+                  <td className="px-4 py-2  justify-center items-center">
+                    <button className="text-red-500 hover:text-black">
+                      <FiTrash className="mr-2" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
+    </>
   );
+};
 };
 
 export default Cart;
