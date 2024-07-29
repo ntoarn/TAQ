@@ -103,3 +103,56 @@ export const updateProductQuantity = async (req, res ) =>{
         })
     }
 }
+// tang slg
+export const increaseProductQuantity = async (req, res) => {
+  const { userId, productId } = req.body;
+  try {
+    let cart = await CartModel.findOne({ userId })
+    if(!cart){
+      return res.status(404).json({
+        message: "Khong tim thay san pham trong gio hang"
+      })
+    }
+    const product = cart.products.find((item) => item.productId.toString() === productId)
+    if(!product){
+      return res.status(404).json({
+        message: "Khong tim thay san pham trong gio hang"
+      })
+    }
+    product.quantity++
+    await cart.save()
+    return res.status(200).json(cart)
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message
+  })
+  }
+}
+// giam slg
+export const decreaseProductQuantity = async (req, res) => {
+  const { userId, productId } = req.body
+  try {
+    let cart = await CartModel.findOne({ userId })
+    if(!cart){
+      return res.status(404).json({
+        message: "Khong tim thay san pham trong gio hang"
+      })
+    }
+    const product = cart.products.find((item) => item.productId.toString() === productId)
+    if(!product){
+      return res.status(404).json({
+        message: "Khong tim thay san pham trong gio hang"
+      })
+    }
+    if(product.quantity > 1){
+      product.quantity--
+      
+    }
+    await cart.save()
+    return res.status(200).json(cart)
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message
+  })
+  }
+}

@@ -1,11 +1,13 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { FiTrash } from 'react-icons/fi';
 import { instance } from '../apis';
 import useLocalStorage from '../hooks/useStorage';
 import { ICart } from '../interfaces/Cart';
 import { FaMinus, FaPlus } from 'react-icons/fa';
+import { reduce } from 'lodash';
 
 const Cart = () => {
+  const queryClient = useQueryClient()
   const [user] = useLocalStorage("user", {});
   const userId = user?.user?._id;
 
@@ -27,7 +29,53 @@ const Cart = () => {
     },
     enabled: !!userId,
   });
-
+  const removeMutation = useMutation({
+    mutationFn: async (productId) => {
+      const { data } = await instance.post(`/cart/remove-cart`,{
+        userId,
+        productId
+      })
+      return data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["cart", userId]
+      })
+    }
+  })
+  const incrementQuantity = useMutation({
+    mutationFn: async (productId) => {
+      const { data } = await instance.post(`/cart/increase`,{
+        userId,
+        productId
+      })
+      return data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["cart", userId]
+      })
+    }
+  })
+  const decrementQuantity = useMutation({
+    mutationFn: async (productId) => {
+      const { data } = await instance.post(`/cart/decrease`,{
+        userId,
+        productId
+      })
+      return data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["cart", userId]
+      })
+    }
+  })
+  const calculateTotal = () => {
+    if (!data || !data.products) 
+      return 0;
+    return reduce(data.products, (total, product) => total + product.price * product.quantity, 0)
+  }
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error</p>;
   return (
@@ -54,18 +102,22 @@ const Cart = () => {
                   <td className="px-4 py-2 border">{product.price}</td>
                   <td className="px-4 py-2 border">
                     <div className="flex items-center justify-center space-x-2">
-                      <button className="text-red-500 hover:text-red-700 p-1">
+                      <button 
+                      className="text-red-500 hover:text-red-700 p-1"
+                      onClick={() => decrementQuantity.mutate(product.productId)}
+                      >
                         <FaMinus />
                       </button>
                       <span>{product.quantity}</span>
-                      <button className="text-blue-500 hover:text-blue-700 p-1">
+                      <button className="text-blue-500 hover:text-blue-700 p-1" 
+                       onClick={() => incrementQuantity.mutate(product.productId)}>
                         <FaPlus />
                       </button>
                     </div>
                   </td>
                   <td className="px-4 py-2 border">{product.price * product.quantity}</td>
                   <td className="px-4 py-2  justify-center items-center">
-                    <button className="text-red-500 hover:text-black">
+                    <button className="text-red-500 hover:text-black" onClick={() => removeMutation.mutate(product.productId)}>
                       <FiTrash className="mr-2" />
                     </button>
                   </td>
@@ -73,11 +125,11 @@ const Cart = () => {
               ))}
             </tbody>
           </table>
+          <p>Total: ${calculateTotal()}</p>
         </div>
       </div>
     </>
   );
-};
 };
 
 export default Cart;
