@@ -9,18 +9,19 @@ const orderSchema = new mongoose.Schema(
       },
     ],
     products: [
-        {
-          productId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Product",
-            required: true
-          },
-          quantity: {
-            type: Number,
-            required: true
-          }
-        }
-      ],
+      {
+        productId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
+
     payments: { type: String, required: true, unique: true },
     status: { type: String, required: true },
     totalPrice: { type: String, requested: true },

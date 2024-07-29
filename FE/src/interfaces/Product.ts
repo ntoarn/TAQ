@@ -15,11 +15,11 @@ export interface Category{
     name:string;
     slug:string
 }
-export interface Color{
-    _id?: string;
-    color:string;
+export interface Color {
+  _id?: string;
+  color: string;
 }
-export interface Size{
-    _id?: string;
-    size:string;
+export interface Size {
+  _id?: string;
+  size: string;
 }

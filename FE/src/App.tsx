@@ -5,7 +5,6 @@ import Register from "./components/AuthForm/Register";
 import LayoutAdmin from "./components/Layout/LayoutAdmin/LayoutAdmin";
 import LayoutClient from "./components/Layout/LayoutClient/LayoutClient";
 import AboutUs from "./pages/AboutUs";
-import CategoryForm from "./pages/admin/CategoryForm";
 import Dashboard from "./pages/admin/Dashboard";
 import ListCategory from "./pages/admin/ListCategory";
 import ListProduct from "./pages/admin/ListProduct";
@@ -18,6 +17,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
       <Routes>
         {/* client */}
         <Route path="/" element={<LayoutClient />}>
-          <Route index element={<Home  />} />
+          <Route index element={<Home />} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
@@ -42,34 +42,16 @@ function App() {
         </Route>
         {/* admin */}
         <Route path="/admin" element={<LayoutAdmin />}>
-          <Route
-            index
-            element={
-              <Dashboard
-              />
-            }
-          />
-          <Route path="/admin/product" element={<ListProduct/>}/>
-          <Route
-            path="/admin/product-add"
-            element={<ProductForm />}
-          />
-          <Route
-            path="/admin/product/edit/:id"
-            element={<ProductForm/>}
-          />
-          <Route
-            path="/admin/category"
-            element={<ListCategory />}
-          />
-           <Route
-            path="/admin/categories-add"
-            element={<CategoryForm/>}
-          />
-          <Route
-            path="/admin/categories/edit/:id"
-            element={<CategoryForm />}
-          />
+          <Route index element={<Dashboard />} />
+          <Route path="/admin/product" element={<ListProduct />} />
+          <Route path="/admin/product-add" element={<ProductForm />} />
+          <Route path="/admin/product/edit/:id" element={<ProductForm />} />
+          <Route path="/admin/category" element={<ListCategory />} />
+          {/* <Route path="/admin/categories-add" element={<CategoryForm />} /> */}
+          {/* <Route path="/admin/categories/edit/:id" element={<CategoryForm />} /> */}
+          {/* <Route path="/admin/color" element={<ListColor color={color} />} /> */}
+          {/* <Route path="/admin/size" element={<ListSize size={size} />} /> */}
+
           <Route path="/admin/order" element={<Order />} />
           <Route path="/admin/users" element={<User />} />
         </Route>

@@ -15,7 +15,6 @@ const ProductDetail = () => {
       try {
         const { data } = await instance.get(`/products/${id}`);
         setProduct(data.data);
-        // Fetch related products if needed
         const relatedRes = await instance.get(`/products?relatedTo=${id}`);
         setRelatedProducts(relatedRes.data.data);
       } catch (error) {
@@ -30,29 +29,20 @@ const ProductDetail = () => {
   }
 
   return (
-    <div>
-      <hr />
-      <div className="flex flex-wrap w-full">
-        <div className="w-full px-3">
-          <div className="flex flex-wrap m-0 p-4 border border-solid border-gray-200 rounded-b-lg border-t-0 gi_breadcrumb_inner">
-            <div className="w-full md:w-1/2 px-3">
-              <h2 className="gi-breadcrumb-title text-gray-700 block text-base font-Poppins font-semibold leading-6 my-0 mx-auto capitalize text-center md:text-left mb-1 md:mb-0">
-                Product Detail Page
-              </h2>
-            </div>
-            <div className="min-[768px]:w-[50%] w-full px-[12px]">
-              <ul className="gi-breadcrumb-list text-right max-[767px]:text-center">
-                <li className="gi-breadcrumb-item inline-block text-[14px] font-normal tracking-[0.02rem] leading-[1.2] capitalize">
-                  <a className="relative text-[#4b5966]" href="/">
-                    Home &gt;{" "}
-                  </a>
-                </li>
-                <li className="gi-breadcrumb-item inline-block text-[14px] font-normal tracking-[0.02rem] leading-[1.2] capitalize active">
-                  <a href="#">Product Detail Page</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <div className="px-4 py-6 max-w-screen-lg mx-auto">
+      <div className="w-full px-4 py-6 border-t border-b border-gray-200">
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl font-semibold text-gray-700">
+            Product Detail Page
+          </h2>
+          <ul className="text-right text-sm">
+            <li className="inline">
+              <a href="/" className="text-blue-600 hover:underline">
+                Home &gt;{" "}
+              </a>
+            </li>
+            <li className="inline">Product Detail Page</li>
+          </ul>
         </div>
       </div>
 
@@ -151,7 +141,7 @@ const ProductDetail = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

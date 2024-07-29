@@ -23,53 +23,58 @@ export const getCartByUserId = async (req, res) => {
     }
 }
 export const addItemToCart = async (req, res) => {
-    const { userId , productId, quantity } = req.body;
-    try {
-        let cart = await CartModel.findOne({ userId })
-        if(!cart){
-            cart = new CartModel({ userId, products: [] })
-        }
-        const existProductIndex = cart.products.findIndex((item) => item.productId.toString() == productId)
-        if(existProductIndex !== -1){
-            cart.products[existProductIndex].quantity += quantity
-            // await cart.save()
-        }else{
-            cart.products.push({ productId, quantity })
-            // await cart.save()
-        }
-        await cart.save()
-        return res.status(200).json({
-            message: "Them san pham vao gio hang thanh cong",
-            data: cart
-        })
-    } catch (error) {
-        return res.status(500).json({
-            error: error.message
-        })
-    }   
-}
+  const { userId, productId, quantity } = req.body;
+  try {
+    let cart = await CartModel.findOne({ userId });
+    if (!cart) {
+      cart = new CartModel({ userId, products: [] });
+    }
+    const existProductIndex = cart.products.findIndex(
+      (item) => item.productId.toString() == productId
+    );
+    if (existProductIndex !== -1) {
+      cart.products[existProductIndex].quantity += quantity;
+      // await cart.save()
+    } else {
+      cart.products.push({ productId, quantity });
+      // await cart.save()
+    }
+    await cart.save();
+    return res.status(200).json({
+      message: "Them san pham vao gio hang thanh cong",
+      data: cart,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+};
 
 export const removeFromCart = async (req, res) => {
-    const { userId, productId } = req.body
-    try {
-        let cart = await CartModel.findOne({ userId })
-        if(!cart){
-            return res.status(404).json({
-                message: "Khong tim thay san pham trong gio hang"
-            })
-        }
-        cart.products = cart.products.filter((product) => product.productId && product.productId.toString() !== productId)
-        await cart.save()
-        return res.status(200).json({
-            message: "Xoa san pham khoi gio hang thanh cong",
-            data: cart
-        })
-    } catch (error) {
-        return res.status(500).json({
-            error: error.message
-        })
+  const { userId, productId } = req.body;
+  try {
+    let cart = await CartModel.findOne({ userId });
+    if (!cart) {
+      return res.status(404).json({
+        message: "Khong tim thay san pham trong gio hang",
+      });
     }
-}
+    cart.products = cart.products.filter(
+      (product) =>
+        product.productId && product.productId.toString() !== productId
+    );
+    await cart.save();
+    return res.status(200).json({
+      message: "Xoa san pham khoi gio hang thanh cong",
+      data: cart,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+};
 
 export const updateProductQuantity = async (req, res ) =>{
     const { userId, productId, quantity } = req.body
