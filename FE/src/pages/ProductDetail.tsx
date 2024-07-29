@@ -3,9 +3,14 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { instance } from "../apis";
 import { Product } from "../interfaces/Product";
-import ProductCart from "./ProdcutCart";
 import { ProductContext } from "../contexts/ProductContext";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import useLocalStorage from "../hooks/useStorage";
 const ProductDetail = () => {
+  const queryClient = useQueryClient()
+  const [user] = useLocalStorage("user", {})
+  const userId = user?.user?._id
+
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
@@ -23,7 +28,21 @@ const ProductDetail = () => {
     };
     fetchProduct();
   }, [id]);
-
+  const {  mutate } = useMutation({
+    mutationFn: async ({productId, quantity}: { productId: string, quantity:number}) => {
+      const { data } = await instance.post(`/cart/add-to-cart`, {
+        userId,
+        productId,
+        quantity
+      })
+      return data;
+    }, 
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["cart", userId]
+      })
+    }
+  })
   if (!product) {
     return <div>Loading...</div>;
   }
@@ -125,6 +144,7 @@ const ProductDetail = () => {
                         <button
                           className="btn btn-primary gi-btn-1 flex h-10 leading-12 text-center text-sm m-1 py-2 px-4 uppercase justify-center bg-gray-700 text-white transition-all duration-300 ease-in-out relative rounded-md items-center min-w-[160px] font-semibold tracking-tight border-0 hover:bg-green-600 hover:text-white"
                           type="button"
+                          onClick={() => mutate({productId: product._id!, quantity:1})}
                         >
                           Add To Cart
                         </button>
@@ -133,16 +153,16 @@ const ProductDetail = () => {
                   </div>
                 </div>
                 {/* Sản phẩm tương tự */}
-                <div className="my-10 ">
+                {/* <div className="my-10 ">
                   <div className="flex flex-wrap m-[-15px]">
                     {state.products.map((product) => (
                       <ProductCart key={product._id} product={product} />
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
-            ))}
           </div>
+        </div>
         </div>
       </section>
     </div>
