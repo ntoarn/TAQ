@@ -1,0 +1,62 @@
+// /* LayoutAdmin.module.scss */
+// $primary-color: #007bff;
+// $secondary-color: #6c757d;
+// $background-color: #f8f9fa;
+// $header-height: 60px;
+// $sidebar-width: 250px;
+
+// body {
+//   margin: 0;
+//   font-family: Arial, sans-serif;
+// }
+
+// .row {
+//   display: flex;
+//   min-height: 100vh; /* Đảm bảo chiều cao tối thiểu của hàng bằng chiều cao của màn hình */
+// }
+
+// .col3 {
+//   width: $sidebar-width;
+// }
+
+// .col9 {
+//   flex-grow: 1;
+// }
+
+// .sidebar {
+//   background-color: $secondary-color;
+//   height: 100vh; /* Đảm bảo chiều cao của sidebar bằng chiều cao của màn hình */
+//   padding: 21px;
+//   position: fixed;
+//   width: $sidebar-width;
+//   overflow-y: auto; /* Thêm thanh cuộn nếu nội dung vượt quá chiều cao */
+// }
+
+// .sidebarList {
+//   list-style: none;
+//   padding: 0;
+// }
+
+// .sidebarItem {
+//   margin-bottom: 10px;
+// }
+
+// .sidebarLink {
+//   color: white;
+//   text-decoration: none;
+//   display: block;
+//   padding: 10px;
+//   border-radius: 4px;
+
+//   &:hover {
+//     background-color: darken($secondary-color, 10%);
+//   }
+// }
+
+// .main {
+//   margin-left: $sidebar-width;
+//   padding: 10px;
+//   background-color: $background-color;
+//   min-height: 100vh; /* Đảm bảo chiều cao tối thiểu của main bằng chiều cao của màn hình */
+// }
+
