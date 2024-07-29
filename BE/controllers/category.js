@@ -48,7 +48,7 @@ export const getCategoryById = async (req, res) => {
 }
 export const updateCategory = async (req, res) => {
     try {
-        const category = await CategoryModel.findByIdAndUpdate(res.params.id, req.body, {
+        const category = await CategoryModel.findByIdAndUpdate(req.params.id, req.body, {
             new: true
         })
         if(!category){
@@ -67,17 +67,14 @@ export const updateCategory = async (req, res) => {
 }
 export const removeCategory = async (req, res) => {
     try {
-        const category = await CategoryModel.findByIdAndDelete(res.params.id)
+        const category = await CategoryModel.findByIdAndDelete(req.params.id)
         if(!category){
             return res.status(400).json({
                 message: "Xoa danh muc that bai",
                 
             })
         }
-        return res.status(200).json({
-            message: "Xoa danh muc thanh cong",
-            data: category
-        })
+        return res.status(200).json(category)
     } catch (error) {
         console.log(error)
     }

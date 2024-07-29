@@ -1,14 +1,15 @@
 // pages/ProductDetail.tsx
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { instance } from "../apis";
 import { Product } from "../interfaces/Product";
 import ProductCart from "./ProdcutCart";
+import { ProductContext } from "../contexts/ProductContext";
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
-
+  const { state } = useContext(ProductContext)
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -87,7 +88,7 @@ const ProductDetail = () => {
                     <ul className="ml-4">
                       <li className="list-disc text-gray-500">
                         <strong className="text-gray-500">Color</strong> :{" "}
-                        {product.color}
+                        {product.colorId}
                       </li>
                       <li className="list-disc text-gray-500">
                         <strong className="text-gray-500">Sole</strong> : Blue
@@ -144,7 +145,7 @@ const ProductDetail = () => {
                 {/* Sản phẩm tương tự */}
                 <div className="my-10 ">
                   <div className="flex flex-wrap m-[-15px]">
-                    {relatedProducts.map((product) => (
+                    {state.products.map((product) => (
                       <ProductCart key={product._id} product={product} />
                     ))}
                   </div>

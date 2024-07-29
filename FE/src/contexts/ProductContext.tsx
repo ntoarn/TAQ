@@ -1,11 +1,11 @@
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer} from "react";
 import { useNavigate } from "react-router-dom";
 import { Product } from "../interfaces/Product";
 import { instance } from "../apis";
 import productReducer from "../reducers/productReducer";
 
 type ProductContextType = {
-   state : { products: Product[],}
+    state : { products: Product[],}
     handleRemove: (id: string) => void,
     handleSubmitProduct: (product: Product) => void,
 }

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { instance } from "../../apis";
 import { ProductContext } from "../../contexts/ProductContext";
-import { ICategory } from "../../interfaces/Category";
+import { ICategory } from "../../contexts/Category";
 import { IColor } from "../../interfaces/Color";
 import { Product } from "../../interfaces/Product";
 import { ISize } from "../../interfaces/Size";
@@ -67,7 +67,7 @@ const ProductForm = () => {
   }, []);
 
   const handleFormSubmit = (data: Product) => {
-    console.log("Form data:", data); // Thêm dòng này để kiểm tra dữ liệu
+    console.log("Form data:", data); 
     handleSubmitProduct({ ...data, _id: id, categoryId: data.categoryId, colorId: data.colorId, sizeId: data.sizeId });
   };
   
@@ -121,6 +121,21 @@ const ProductForm = () => {
           />
           {errors.description?.message && (
             <p className="text-red-500 mt-1">{errors.description?.message}</p>
+          )}
+        </div>
+        <div className="mb-4">
+          <label htmlFor="quantity" className="block text-gray-700">
+            Quantity
+          </label>
+          <input
+            type="number"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50 focus:ring-blue-300"
+            id="quantity"
+            placeholder="quantity"
+            {...register("quantity", { valueAsNumber: true })}
+          />
+          {errors.quantity?.message && (
+            <p className="text-red-500 mt-1">{errors.quantity?.message}</p>
           )}
         </div>
         <div className="mb-4">

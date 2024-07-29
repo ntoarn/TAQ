@@ -5,6 +5,7 @@ const productSchema = z.object({
 	price: z.number().min(0, { message: "Price không được để âm" }),
 	description: z.string().min(1, { message: "Không được bỏ trống dữ liệu" }),
 	image: z.any().optional(),
+	quantity: z.number().min(0, { message: "So luong không được để âm" }),
 	categoryId: z.string(),
 	colorId: z.string(),
 	sizeId: z.string(),

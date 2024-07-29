@@ -20,6 +20,7 @@ const ListProduct = () => {
              <th className="py-2">Name</th>
              <th className="py-2">Price</th>
              <th className="py-2">Description</th>
+             <th className="py-2">Quantity</th>
              <th className="py-2">Color</th>
              <th className="py-2">Size</th>
              <th className="py-2">Danh mục</th>
@@ -43,6 +44,7 @@ const ListProduct = () => {
                <td className="py-2">{product.title}</td>
                <td className="py-2">${product.price}</td>
                <td className="py-2 truncate max-w-xs">{product.description}</td>
+               <td className="py-2">{product.quantity}</td>
                <td className="py-2 truncate max-w-xs">
                  {product.colorId?.color}
                </td>
