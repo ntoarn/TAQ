@@ -6,13 +6,13 @@ import { Product } from "../interfaces/Product";
 import { useCart } from "../contexts/CartContext";
 
 const ProductDetail = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams<{ id: string }>();
-  const { addToCart } = useCart();
+  // const { addToCart } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null); // State for success message
+  // const [successMessage, setSuccessMessage] = useState<string | null>(null); // State for success message
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -38,17 +38,17 @@ const ProductDetail = () => {
   const handleDecrease = () => {
     setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 1)); // Ensure quantity is not less than 1
   };
-  const handleAddToCart = () => {
-    if (product) {
-      const productWithQuantity = { ...product, quantity };
-      addToCart(productWithQuantity);
-      setSuccessMessage("Sản phẩm đã được thêm vào giỏ hàng!");
-      setTimeout(() => {
-        setSuccessMessage(null);
-        navigate("/cart");
-      }, 2000);
-    }
-  };
+  // const handleAddToCart = () => {
+  //   if (product) {
+  //     const productWithQuantity = { ...product, quantity };
+  //     addToCart(productWithQuantity);
+  //     setSuccessMessage("Sản phẩm đã được thêm vào giỏ hàng!");
+  //     setTimeout(() => {
+  //       setSuccessMessage(null);
+  //       // navigate("/cart");
+  //     }, 2000);
+  //   }
+  // };
 
   return (
     <div className="px-4 py-6 max-w-screen-lg mx-auto">
@@ -128,7 +128,7 @@ const ProductDetail = () => {
                 <button
                   className="btn btn-primary gi-btn-1 flex h-10 leading-12 text-center text-sm m-1 py-2 px-4 uppercase justify-center bg-gray-700 text-white transition-all duration-300 ease-in-out relative rounded-md items-center min-w-[160px] font-semibold tracking-tight border-0 hover:bg-green-600 hover:text-white"
                   type="button"
-                  onClick={handleAddToCart}
+                  // onClick={handleAddToCart}
                 >
                   Add To Cart
                 </button>

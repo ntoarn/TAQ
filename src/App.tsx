@@ -15,7 +15,6 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
-import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail";
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/cart" element={<Cart />} />
 
           <Route path="/product-detail/:id" element={<ProductDetail />} />
           <Route path="/users/register" element={<Register />} />
