@@ -1,131 +1,103 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { FiTrash } from 'react-icons/fi';
-import { instance } from '../apis';
-import useLocalStorage from '../hooks/useStorage';
-import { ICart } from '../interfaces/Cart';
-import { FaMinus, FaPlus } from 'react-icons/fa';
-import { reduce } from 'lodash';
+import { FiMinus, FiPlus, FiTrash } from 'react-icons/fi';
+import useCart from '../hooks/useCart';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const queryClient = useQueryClient()
-  const [user] = useLocalStorage("user", {});
-  const userId = user?.user?._id;
-
-  const { data, isLoading, isError } = useQuery<ICart>({
-    queryKey: ["cart", userId],
-    queryFn: async () => {
-      if (!userId) {
-        return { products: [] };
-      }
-
-      try {
-        const response = await instance.get<ICart>(`/cart/${userId}`);
-        console.log('API response:', response.data);
-        return response.data.products ? response.data : { products: [] };
-      } catch (error) {
-        console.error('Error fetching cart data:', error);
-        return { products: [] };
-      }
-    },
-    enabled: !!userId,
-  });
-  const removeMutation = useMutation({
-    mutationFn: async (productId) => {
-      const { data } = await instance.post(`/cart/remove-cart`,{
-        userId,
-        productId
-      })
-      return data;
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["cart", userId]
-      })
-    }
-  })
-  const incrementQuantity = useMutation({
-    mutationFn: async (productId) => {
-      const { data } = await instance.post(`/cart/increase`,{
-        userId,
-        productId
-      })
-      return data;
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["cart", userId]
-      })
-    }
-  })
-  const decrementQuantity = useMutation({
-    mutationFn: async (productId) => {
-      const { data } = await instance.post(`/cart/decrease`,{
-        userId,
-        productId
-      })
-      return data;
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["cart", userId]
-      })
-    }
-  })
-  const calculateTotal = () => {
-    if (!data || !data.products) 
-      return 0;
-    return reduce(data.products, (total, product) => total + product.price * product.quantity, 0)
-  }
+  const { data, calculateTotal, mutate, isLoading, isError } = useCart()
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error</p>;
   return (
     <>
       <h1 className="text-2xl font-bold mb-4">Your Shopping Cart</h1>
-      <div className="grid grid-cols-3 gap-4">
-        <div className="col-span-2 overflow-x-auto">
+      <div className="flex">
+        <div className="flex-1 overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-200 text-center">
             <thead>
               <tr className="bg-gray-200">
-                <th className="w-1/12 px-4 py-2 border">#</th>
-                <th className="w-4/12 px-4 py-2 border">Tên sản phẩm</th>
-                <th className="w-2/12 px-4 py-2 border">Giá</th>
-                <th className="w-2/12 px-4 py-2 border">Số lượng</th>
-                <th className="w-3/12 px-4 py-2 border">Tổng giá</th>
-                {/* <th className="w-3/12 px-4 py-2 border">Action</th> */}
+                <th className="w-1/12 px-2 py-1 border">#</th>
+                <th className="w-1/12 px-2 py-1 border">Ảnh</th>
+                <th className="w-3/12 px-2 py-1 border">Tên sản phẩm</th>
+                <th className="w-2/12 px-2 py-1 border">Giá</th>
+                <th className="w-2/12 px-2 py-1 border">Số lượng</th>
+                <th className="w-2/12 px-2 py-1 border">Tổng giá</th>
+                <th className="w-1/12 px-2 py-1 border">Action</th>
               </tr>
             </thead>
             <tbody>
               {data?.products?.map((product, index) => (
                 <tr key={product._id} className="border-b hover:bg-gray-100">
-                  <td className="px-4 py-2 border">{index + 1}</td>
-                  <td className="px-4 py-2 border">{product.title}</td>
-                  <td className="px-4 py-2 border">{product.price}</td>
-                  <td className="px-4 py-2 border">
+                  <td className="px-2 py-1 border">{index + 1}</td>
+                  <td className="px-2 py-1 border">
+                    <img src={product.image} alt="" className="w-16 h-16 object-cover" />
+                  </td>
+                  <td className="px-2 py-1 border">{product.title}</td>
+                  <td className="px-2 py-1 border">{product.price}</td>
+                  <td className="px-2 py-1 border">
                     <div className="flex items-center justify-center space-x-2">
-                      <button 
-                      className="text-red-500 hover:text-red-700 p-1"
-                      onClick={() => decrementQuantity.mutate(product.productId)}
+                      <button
+                        className="text-red-500 hover:text-red-700 p-1"
+                        onClick={() => mutate({ action: 'DECREMENT', productId: product.productId })}
                       >
-                        <FaMinus />
+                        <FiMinus />
                       </button>
                       <span>{product.quantity}</span>
-                      <button className="text-blue-500 hover:text-blue-700 p-1" 
-                       onClick={() => incrementQuantity.mutate(product.productId)}>
-                        <FaPlus />
+                      <button
+                        className="text-blue-500 hover:text-blue-700 p-1"
+                        onClick={() => mutate({ action: 'INCREMENT', productId: product.productId })}
+                      >
+                        <FiPlus />
                       </button>
                     </div>
                   </td>
-                  <td className="px-4 py-2 border">{product.price * product.quantity}</td>
-                  <td className="px-4 py-2  justify-center items-center">
-                    <button className="text-red-500 hover:text-black" onClick={() => removeMutation.mutate(product.productId)}>
-                      <FiTrash className="mr-2" />
+                  <td className="px-2 py-1 border">{product.price * product.quantity}</td>
+                  <td className="px-2 py-1 border">
+                    <button
+                      className="text-red-500 hover:text-black"
+                      onClick={() => mutate({ action: 'REMOVE', productId: product.productId })}
+                    >
+                      <FiTrash />
                     </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <p>Total: ${calculateTotal()}</p>
+        </div>
+
+        <div className="ml-4 w-1/4">
+          <div className="bg-gray-100 p-4 border border-gray-200">
+            <h2 className="text-lg font-bold mb-2">Thanh toán</h2>
+
+            <div className="mb-4">
+              <label htmlFor="discount" className="block text-sm font-medium mb-2">Mã giảm giá:</label>
+              <div className="flex">
+                <input
+                  id="discount"
+                  type="text"
+                  // value={discountCode}
+                  // onChange={(e) => setDiscountCode(e.target.value)}
+                  className="border border-gray-300 px-3 py-2 rounded-l-md flex-1"
+                />
+                <button
+                  className="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600"
+                >
+                  Áp dụng
+                </button>
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <p className=''>Phí vận chuyển: 30.000VNĐ</p>
+            </div>
+
+            <p className="text-xl font-semibold mb-4">Tổng cộng: ${calculateTotal()}</p>
+            <Link
+              to="/checkout"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full block text-center"
+            >
+              Thanh toán
+            </Link>
+          </div>
         </div>
       </div>
     </>

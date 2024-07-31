@@ -8,6 +8,7 @@ export const getCartByUserId = async (req, res) => {
             products: cart.products.map((item) =>{
                return {
                 productId: item.productId._id,
+                image: item.productId.image,
                 title: item.productId.title,
                 price: item.productId.price,
                 quantity: item.quantity
