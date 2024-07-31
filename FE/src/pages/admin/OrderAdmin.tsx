@@ -1,20 +1,8 @@
 import { Link } from 'react-router-dom';
 
-type Order = {
-    _id: string;
-    customerName: string;
-    date: string;
-    status: string;
-    total: number;
-};
 
-type Props = {
-    orders: Order[];
-    // onDel: (id: string) => void;
-    // onEdit: (id: string) => void;
-};
 
-const Order = () => {
+const OrderAdmin = () => {
     return (
         <div className="container mx-auto mt-4">
             <h2 className="text-2xl mb-4">Order Management</h2>
@@ -35,4 +23,4 @@ const Order = () => {
     );
 };
 
-export default Order;
+export default OrderAdmin;

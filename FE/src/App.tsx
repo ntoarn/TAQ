@@ -8,15 +8,16 @@ import AboutUs from "./pages/AboutUs";
 import Dashboard from "./pages/admin/Dashboard";
 import ListCategory from "./pages/admin/ListCategory";
 import ListProduct from "./pages/admin/ListProduct";
-import Order from "./pages/admin/Order";
 import ProductForm from "./pages/admin/ProductForm";
 import User from "./pages/admin/User";
 import Blog from "./pages/Blog";
+import Cart from "./pages/Cart";
+import CheckOut from "./pages/CheckOut";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail";
+import Shop from "./pages/Shop";
+import ThankYou from "./pages/ThankYou";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/thankyou" element={<ThankYou />} />
 
           <Route
             path="/product-detail/:id"
@@ -51,7 +54,7 @@ function App() {
           {/* <Route path="/admin/color" element={<ListColor color={color} />} /> */}
           {/* <Route path="/admin/size" element={<ListSize size={size} />} /> */}
 
-          <Route path="/admin/order" element={<Order />} />
+          {/* <Route path="/admin/order" element={<OrderAdmin />} /> */}
           <Route path="/admin/users" element={<User />} />
         </Route>
       </Routes>

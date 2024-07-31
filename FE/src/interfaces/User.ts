@@ -1,10 +1,8 @@
 export interface User {
+  name?: string;
   email?: string;
   password?: string;
   confirmPass?: string;
   _id?: string;
 }
 
-export interface UserData {
-  user: User;
-}
