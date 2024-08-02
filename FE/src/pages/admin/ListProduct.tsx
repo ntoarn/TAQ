@@ -12,7 +12,7 @@ const ListProduct = () => {
          </button>
        </Link>
      <div className="container mx-auto mt-4 col-span-9">
-       <table className="min-w-full bg-white border border-gray-300">
+       <table className="min-w-full bg-white border border-gray-300 border-collapse">
          <thead className="bg-gray-800 text-white">
            <tr>
              <th className="py-2">#</th>
@@ -31,7 +31,7 @@ const ListProduct = () => {
            {state.products.map((product, index) => (
              <tr
                key={product._id}
-               className="text-center border-t border-gray-300"
+               className="text-center border-t border-gray-300 "
              >
                <td className="py-2">{index + 1}</td>
                <td className="py-2">
@@ -41,7 +41,7 @@ const ListProduct = () => {
                    className="w-12 h-12 object-cover mx-auto"
                  />
                </td>
-               <td className="py-2">{product.title}</td>
+               <td className="py-2 truncate max-w-6">{product.title}</td>
                <td className="py-2">${product.price}</td>
                <td className="py-2 truncate max-w-xs">{product.description}</td>
                <td className="py-2">{product.quantity}</td>

@@ -3,7 +3,7 @@ import CartModel from "../models/CartModel.js";
 export const getCartByUserId = async (req, res) => {
     const { userId } = req.params;
     try {
-        const cart = await CartModel.findOne({ userId}).populate('products.productId');
+        const cart = await CartModel.findOne({ userId }).populate('products.productId');
         const cartData = {
             products: cart.products.map((item) =>{
                return {
