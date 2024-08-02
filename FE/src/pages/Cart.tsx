@@ -90,7 +90,7 @@ const Cart = () => {
               <p className=''>Phí vận chuyển: 30.000VNĐ</p>
             </div>
 
-            <p className="text-xl font-semibold mb-4">Tổng cộng: ${calculateTotal()}</p>
+            <p className="text-xl font-semibold mb-4">Tổng cộng: {calculateTotal()} VNĐ </p>
             <Link
               to="/checkout"
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full block text-center"

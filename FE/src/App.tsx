@@ -18,6 +18,8 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Shop from "./pages/Shop";
 import ThankYou from "./pages/ThankYou";
+import CategoryForm from "./pages/admin/CategoryForm";
+import OrderAdmin from "./pages/admin/OrderAdmin";
 
 function App() {
   return (
@@ -49,12 +51,11 @@ function App() {
           <Route path="/admin/product-add" element={<ProductForm />} />
           <Route path="/admin/product/edit/:id" element={<ProductForm />} />
           <Route path="/admin/category" element={<ListCategory />} />
-          {/* <Route path="/admin/categories-add" element={<CategoryForm />} /> */}
-          {/* <Route path="/admin/categories/edit/:id" element={<CategoryForm />} /> */}
-          {/* <Route path="/admin/color" element={<ListColor color={color} />} /> */}
-          {/* <Route path="/admin/size" element={<ListSize size={size} />} /> */}
+          <Route path="/admin/categories-add" element={<CategoryForm />} />
+          <Route path="/admin/categories/edit/:id" element={<CategoryForm />} />
+  
 
-          {/* <Route path="/admin/order" element={<OrderAdmin />} /> */}
+          <Route path="/admin/order" element={<OrderAdmin />} />
           <Route path="/admin/users" element={<User />} />
         </Route>
       </Routes>

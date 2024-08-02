@@ -186,3 +186,29 @@ export const removeProduct = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getProductsByCategory = async (req, res) => {
+  try {
+    const { categoryId } = req.params;
+    
+    const products = await ProductModel.find({ categoryId })
+      .populate("categoryId")
+      .populate("sizeId")
+      .populate("colorId");
+
+    if (products && products.length !== 0) {
+      return res.status(200).json({
+        message: "Lấy danh sách sản phẩm theo danh mục thành công",
+        data: products,
+      });
+    }
+    return res.status(404).json({
+      message: "Không có sản phẩm nào trong danh mục này",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+      name: error.name,
+    });
+  }
+};
