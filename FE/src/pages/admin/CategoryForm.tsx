@@ -1,12 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { instance } from "../../apis";
-import { Product } from "../../interfaces/Product";
-import categorySchema from "../../schemas/categorySchema";
-import { ICategory } from "../../interfaces/Category";
 import { CategoryContext } from "../../contexts/CategoryContext";
+import { ICategory } from "../../interfaces/Category";
+import categorySchema from "../../schemas/categorySchema";
+import instance from "../../apis";
 
 
 const CategoryForm = () => {

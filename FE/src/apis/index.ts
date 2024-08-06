@@ -1,9 +1,28 @@
 import axios from "axios";
 
-export const instance = axios.create({
-    baseURL: "http://localhost:8000/api",
-    headers: {
-        "Content-Type": "application/json",
-    },
-    timeout:3000
-})
+const instance = axios.create({
+	baseURL: import.meta.env.VITE_API || "http://localhost:8000/api",
+	timeout: 5000,
+	headers: {
+		"Content-Type": "application/json",
+		"Access-Control-Allow-Origin": "*",
+	},
+});
+
+instance.interceptors.request.use(
+	(config) => {
+		const token = localStorage.getItem("accessToken");
+		if (token) {
+			config.headers.Authorization = `Bearer ${token}`;
+		}
+		return config;
+	},
+	(error: any) => {
+		return Promise.reject(error);
+	}
+);
+
+export const getProtectedData = (token: string) =>
+	instance.get("/protected", { headers: { Authorization: `Bearer ${token}` } });
+
+export default instance;

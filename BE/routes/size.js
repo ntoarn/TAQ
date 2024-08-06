@@ -6,13 +6,12 @@ import {
   getSizeById,
   updateSize,
 } from "../controllers/size.js";
-import { checkPermission } from "../middlewares/checkPermission.js";
 
 const sizeRouter = Router();
 sizeRouter.get("/", getAllSize);
 sizeRouter.post("/", createSize);
 sizeRouter.get("/:id", getSizeById);
-sizeRouter.put("/:id", checkPermission, updateSize);
-sizeRouter.delete("/:id", checkPermission, deleteSize);
+sizeRouter.put("/:id", updateSize);
+sizeRouter.delete("/:id", deleteSize);
 
 export default sizeRouter;

@@ -1,23 +1,25 @@
-export interface IOrderItem {
-    name: string; 
-    price: number;
-    quantity: number;
-}
-
+// src/interfaces/order.ts
 export interface ICustomerInfo {
     name: string;
     email: string;
     address: string;
-    phone: number;
+    phone: string;
     payment: string;
     city: string;
-}
-
-export interface IOrder {
+  }
+  
+  export interface IOrderItem {
+    _id: string;
+    title: string;
+    image: string;
+    price: number;
+    quantity: number;
+  }
+  
+  export interface IOrder {
     userId: string;
     items: IOrderItem[];
-    orderNumber: string;
-    customerInfo: ICustomerInfo;
     totalPrice: number;
-    status?: "pending" | "confirmed" | "shipped" | "delivered";
-}
+    customerInfo: ICustomerInfo;
+  }
+  

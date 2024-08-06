@@ -1,8 +1,9 @@
 import { createContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import { instance } from "../apis";
+
 import categoryReducer from "../reducers/categoryReducer";
 import { ICategory } from "../interfaces/Category";
+import instance from "../apis";
 
 type CategoryContextType = {
     state : { categories: ICategory[],}
