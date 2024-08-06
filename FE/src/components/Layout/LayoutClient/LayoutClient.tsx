@@ -5,13 +5,13 @@ import { Outlet } from 'react-router-dom'
 
 const LayoutClient = () => {
   return (
-    <>
-    <Header/>
-    <main className='main'>
-      <Outlet/>
-    </main>
-    <Footer/>
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow">  
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
   )
 }
 

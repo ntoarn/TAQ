@@ -2,13 +2,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { instance } from "../../apis";
 import { ProductContext } from "../../contexts/ProductContext";
-import { ICategory } from "../../contexts/Category";
 import { IColor } from "../../interfaces/Color";
 import { Product } from "../../interfaces/Product";
 import { ISize } from "../../interfaces/Size";
 import productSchema from "../../schemas/productSchema";
+import { ICategory } from "../../interfaces/Category";
+import instance from "../../apis";
 
 const ProductForm = () => {
   const { id } = useParams<{ id?: string }>();

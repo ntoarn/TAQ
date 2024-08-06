@@ -1,16 +1,17 @@
 // pages/ProductDetail.tsx
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { instance } from "../apis";
 import { Product } from "../interfaces/Product";
 import { ProductContext } from "../contexts/ProductContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useLocalStorage from "../hooks/useStorage";
 import { toast, ToastContainer } from "react-toastify";
+import { useAuth } from "../contexts/AuthContext";
+import instance from "../apis";
 const ProductDetail = () => {
   const queryClient = useQueryClient()
-  const [user] = useLocalStorage("user", {})
-  const userId = user?.user?._id
+  const { user } = useAuth();
+    const userId = user?._id;
 
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);

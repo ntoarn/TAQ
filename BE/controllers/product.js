@@ -94,7 +94,7 @@ export const createProduct = async (req, res, next) => {
       data: product,
     });
   } catch (error) {
-    console.error("Error creating product:", error); // Log lỗi chi tiết
+    console.error("Error creating product:", error); 
     return res.status(500).json({
       message: "Tạo sản phẩm thất bại",
       error: error.message,
@@ -212,3 +212,4 @@ export const getProductsByCategory = async (req, res) => {
     });
   }
 };
+

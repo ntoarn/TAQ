@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { data, calculateTotal, mutate, isLoading, isError } = useCart()
+  const shippingFee = 30000; 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error</p>;
+  const totalAmount = calculateTotal() + shippingFee;
   return (
     <>
       <h1 className="text-2xl font-bold mb-4">Your Shopping Cart</h1>
@@ -87,10 +89,10 @@ const Cart = () => {
             </div>
 
             <div className="mb-4">
-              <p className=''>Phí vận chuyển: 30.000VNĐ</p>
+            <p className="text-sm text-gray-600">Phí vận chuyển: {shippingFee.toLocaleString()} VNĐ</p>
             </div>
 
-            <p className="text-xl font-semibold mb-4">Tổng cộng: {calculateTotal()} VNĐ </p>
+            <p className="text-xl font-semibold mb-4">Tổng cộng: {totalAmount.toLocaleString()} VNĐ</p>
             <Link
               to="/checkout"
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full block text-center"

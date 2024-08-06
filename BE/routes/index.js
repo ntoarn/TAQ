@@ -1,13 +1,14 @@
 import { Router } from "express";
-import productRouter from "./product.js";
 import categoryRouter from "./category.js";
+import productRouter from "./product.js";
 
-import { login } from "./../controllers/login.js";
-import { register } from "./../controllers/register.js";
-import sizeRouter from "./size.js";
+import cartRouter from "./cart.js";
 import colorRouter from "./color.js";
 import orderRouter from "./order.js";
-import cartRouter from "./cart.js";
+import sizeRouter from "./size.js";
+import userRouter from "./auth.js";
+import forgotpasswordRouter from "./forgotpassword.js";
+import PaymentRouter from "./momo.js";
 
 const router = Router();
 
@@ -17,7 +18,8 @@ router.use("/size", sizeRouter);
 router.use("/color", colorRouter);
 router.use("/order", orderRouter);
 router.use("/cart", cartRouter);
-router.post("/register", register);
-router.post("/login", login);
+router.use("/users", userRouter)
+router.use("/auth", forgotpasswordRouter)
+router.use("/", PaymentRouter)
 
 export default router;

@@ -7,50 +7,52 @@ import { joiResolver } from '@hookform/resolvers/joi'
 import { customerInfoSchema } from '../schemas/orderSchema'
 import { ICustomerInfo, IOrder } from '../interfaces/Order'
 import { useMutation } from '@tanstack/react-query'
-import { instance } from '../apis'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
+import instance from '../apis'
 
 const CheckOut = () => {
     const nav = useNavigate()
     const { data: cartData, calculateTotal } = useCart()
-    const [user] = useLocalStorage("user", {})
-    const userId = user?.user?._id;
+    const { user } = useAuth();
+    const userId = user?._id;
+    const shippingFee = 30000; 
     // console.log(userId)
     const {
-        register,
-        handleSubmit,
-        formState: { errors },
+      register,
+      handleSubmit,
+      formState: { errors },
     } = useForm<ICustomerInfo>({
-        resolver:joiResolver(customerInfoSchema)
-    })
+      resolver: joiResolver(customerInfoSchema),
+    });
     const { mutate } = useMutation({
-        mutationFn: async(order: {userId: string; items: [], totalPrice: number, customerInfo: object}) =>{
-            const { data } = await instance.post(`/order`, order)
-            return data;
-        },
-        onSuccess: () => {
-            nav('/thankyou')
-            alert('Đặt hàng thành công');
-            window.location.reload();
-        }
-    })
+      mutationFn: async (order: IOrder) => {
+        const { data } = await instance.post(`/order`, order);
+        return data;
+      },
+      onSuccess: () => {
+        nav('/thankyou');
+        alert('Đặt hàng thành công');
+        window.location.reload();
+      },
+    });
     const onSubmit = (data: ICustomerInfo) => {
-        const order: IOrder = {
-          userId: userId,
-          items: cartData?.products || [], 
-          totalPrice: calculateTotal(),
-          customerInfo: data
-        };
-        mutate(order);
-        // console.log('Order Data: ', order);
+      const order: IOrder = {
+        userId: userId as string,
+        items: cartData?.products || [],
+        totalPrice: calculateTotal(),
+        customerInfo: data,
+      };
+      mutate(order);
     };
+    const totalAmount = calculateTotal() + shippingFee;
   return (
     <div>
       <div className="container mx-auto">
-      <h1 className='font-bold tex-4xl'>Check Out</h1>
-      <div className="grid grid-cols-12 gap-8">
-        <div className="col-span-8">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <h1 className='font-bold text-4xl'>Check Out</h1>
+        <div className="grid grid-cols-12 gap-8">
+          <div className="col-span-8">
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                   Tên
@@ -97,7 +99,7 @@ const CheckOut = () => {
                 <input
                   {...register('phone')}
                   id="phone"
-                  type="number"
+                  type="text"
                   className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.phone ? 'border-red-500' : ''}`}
                 />
                 {errors.phone && <p className="text-red-500 text-xs italic">{errors.phone.message}</p>}
@@ -107,12 +109,15 @@ const CheckOut = () => {
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="payment">
                   Hình thức thanh toán
                 </label>
-                <input
+                <select
                   {...register('payment')}
                   id="payment"
-                  type="text"
                   className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.payment ? 'border-red-500' : ''}`}
-                />
+                >
+                  <option value="">Chọn phương thức thanh toán</option>
+                  <option value="COD">Thanh toán khi nhận hàng</option>
+                  <option value="MOMO">Thanh toán MoMo</option>
+                </select>
                 {errors.payment && <p className="text-red-500 text-xs italic">{errors.payment.message}</p>}
               </div>
 
@@ -138,23 +143,29 @@ const CheckOut = () => {
                 </button>
               </div>
             </form>
-        </div>
-        <div className="col-span-4">
-        {cartData?.products?.map((item: Product) => (
+          </div>
+          <div className="col-span-4">
+            {cartData?.products?.map((item: IOrderItem) => (
               <div key={item._id} className='border-b py-4'>
+                <h4>Ảnh: <img src={item.image} alt="" width={100}/>
+                   
+                </h4>
                 <h4>Tên: {item.title}</h4>
                 <p>Giá: {item.price}</p>
                 <p>Số lượng: {item.quantity}</p>
               </div>
             ))}
+            <div className="mb-4">
+            <p className="text-sm text-gray-600">Phí vận chuyển: {shippingFee.toLocaleString()} VNĐ</p>
+            </div>
             <p className='mt-5'>
-              <strong className='mr-2'> Sản phẩm: </strong>{cartData?.products ? cartData?.products.length : 0}
+              <strong className='mr-2'>Sản phẩm:</strong> {cartData?.products ? cartData?.products.length : 0}
             </p>
             <p>
-              <strong className='mr-2'>Tổng tiền: </strong> {calculateTotal()}
+            <p className="text-xl font-semibold mb-4">Tổng cộng: {totalAmount.toLocaleString()} VNĐ</p>
             </p>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   )

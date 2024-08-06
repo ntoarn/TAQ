@@ -1,14 +1,16 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.scss'
 import { BrowserRouter } from 'react-router-dom'
-import 'react-toastify/dist/ReactToastify.css';
-import "swiper/css";
-import "swiper/css/navigation";
-import { ProductProvider } from './contexts/ProductContext.tsx'
+import 'react-toastify/dist/ReactToastify.css'
+import "swiper/css"
+import "swiper/css/navigation"
+import App from './App.tsx'
 import { CategoryProvider } from './contexts/CategoryContext.tsx'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ProductProvider } from './contexts/ProductContext.tsx'
+import { UserProvider } from './contexts/UserContext.tsx'
+import './index.scss'
+import { AuthProvider } from './contexts/AuthContext.tsx'
 
 const queryClient = new QueryClient();
 
@@ -18,7 +20,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <QueryClientProvider client={queryClient}>
       <ProductProvider>
         <CategoryProvider>
-          <App />
+          <AuthProvider>
+            <UserProvider>
+            <App />
+            </UserProvider>
+          </AuthProvider>
         </CategoryProvider>
       </ProductProvider>
       </QueryClientProvider>

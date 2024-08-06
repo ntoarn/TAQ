@@ -1,11 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import useLocalStorage from "./useStorage";
-import { instance } from "../apis";
+import instance from "../apis";
+import { useAuth } from "../contexts/AuthContext";
 
 const useCart = () => {
     const queryClient = useQueryClient()
-  const [user] = useLocalStorage("user", {});
-  const userId = user?.user?._id;
+    const { user } = useAuth();
+    const userId = user?._id;
 
   const { data, ...restQuery } = useQuery({
     queryKey: ["cart", userId],

@@ -1,8 +1,9 @@
 import { createContext, useEffect, useReducer} from "react";
 import { useNavigate } from "react-router-dom";
 import { Product } from "../interfaces/Product";
-import { instance } from "../apis";
+
 import productReducer from "../reducers/productReducer";
+import instance from "../apis";
 
 type ProductContextType = {
     state : { products: Product[],}

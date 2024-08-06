@@ -1,15 +1,15 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Login from "./components/AuthForm/Login";
-import Register from "./components/AuthForm/Register";
 import LayoutAdmin from "./components/Layout/LayoutAdmin/LayoutAdmin";
 import LayoutClient from "./components/Layout/LayoutClient/LayoutClient";
 import AboutUs from "./pages/AboutUs";
+import CategoryForm from "./pages/admin/CategoryForm";
 import Dashboard from "./pages/admin/Dashboard";
 import ListCategory from "./pages/admin/ListCategory";
 import ListProduct from "./pages/admin/ListProduct";
+import ListUser from "./pages/admin/ListUser";
+import OrderAdmin from "./pages/admin/OrderAdmin";
 import ProductForm from "./pages/admin/ProductForm";
-import User from "./pages/admin/User";
 import Blog from "./pages/Blog";
 import Cart from "./pages/Cart";
 import CheckOut from "./pages/CheckOut";
@@ -18,8 +18,9 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Shop from "./pages/Shop";
 import ThankYou from "./pages/ThankYou";
-import CategoryForm from "./pages/admin/CategoryForm";
-import OrderAdmin from "./pages/admin/OrderAdmin";
+import AuthForm from "./components/AuthForm/AuthForm";
+import ForgotPassword from "./pages/ForgotPassword";
+import MyProfile from "./pages/MyProfile";
 
 function App() {
   return (
@@ -35,14 +36,15 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/thankyou" element={<ThankYou />} />
-
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/myprofile/:id" element={<MyProfile />} />
           <Route
             path="/product-detail/:id"
             element={<ProductDetail />}
           />
-          <Route path="/users/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/users/login" element={<Login />} />
+          <Route path="/login" element={<AuthForm isLogin />} />
+          <Route path="/register" element={<AuthForm />} />
         </Route>
         {/* admin */}
         <Route path="/admin" element={<LayoutAdmin />}>
@@ -53,10 +55,10 @@ function App() {
           <Route path="/admin/category" element={<ListCategory />} />
           <Route path="/admin/categories-add" element={<CategoryForm />} />
           <Route path="/admin/categories/edit/:id" element={<CategoryForm />} />
-  
+
 
           <Route path="/admin/order" element={<OrderAdmin />} />
-          <Route path="/admin/users" element={<User />} />
+          <Route path="/admin/users" element={<ListUser />} />
         </Route>
       </Routes>
     </>
