@@ -1,21 +1,18 @@
-import React from 'react'
+import { joiResolver } from '@hookform/resolvers/joi'
+import { useMutation } from '@tanstack/react-query'
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import useCart from '../hooks/useCart'
 import useLocalStorage from '../hooks/useStorage'
-import { Product } from '../interfaces/Product'
-import { useForm } from 'react-hook-form'
-import { joiResolver } from '@hookform/resolvers/joi'
-import { customerInfoSchema } from '../schemas/orderSchema'
 import { ICustomerInfo, IOrder } from '../interfaces/Order'
-import { useMutation } from '@tanstack/react-query'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
+import { customerInfoSchema } from '../schemas/orderSchema'
 import instance from '../apis'
 
 const CheckOut = () => {
     const nav = useNavigate()
     const { data: cartData, calculateTotal } = useCart()
-    const { user } = useAuth();
-    const userId = user?._id;
+    const [user] = useLocalStorage("user", {})
+    const userId = user?.user?._id;
     const shippingFee = 30000; 
     // console.log(userId)
     const {

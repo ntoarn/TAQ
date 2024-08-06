@@ -20,7 +20,7 @@ import Shop from "./pages/Shop";
 import ThankYou from "./pages/ThankYou";
 import AuthForm from "./components/AuthForm/AuthForm";
 import ForgotPassword from "./pages/ForgotPassword";
-import MyProfile from "./pages/MyProfile";
+import MyProfile from "./pages/admin/MyProfile";
 
 function App() {
   return (

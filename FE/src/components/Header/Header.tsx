@@ -1,19 +1,19 @@
-import { Link } from "react-router-dom";
-import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
+import { useContext, useEffect, useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import {
   FiFacebook,
   FiInstagram,
   FiLinkedin,
   FiMail,
   FiPhone,
+  FiShoppingCart,
   FiTwitter,
 } from "react-icons/fi";
-import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AuthContext, AuthContextType } from "../../contexts/AuthContext";
 import instance from "../../apis";
+import { AuthContext, AuthContextType } from "../../contexts/AuthContext";
 
 const Header = () => {
   const [avatar, setAvatar] = useState<string>("");
@@ -132,7 +132,7 @@ const Header = () => {
               {/* Search and Cart Icons */}
               <div className="relative hidden lg:flex items-center">
                 <Link to="/cart" className="mr-4">
-                  <FaShoppingCart className="text-gray-800" size={30} />
+                  <FiShoppingCart className="text-gray-800" size={30} />
                 </Link>
                 <input
                   type="text"
