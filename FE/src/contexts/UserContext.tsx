@@ -1,4 +1,3 @@
-
 import { createContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../interfaces/User";

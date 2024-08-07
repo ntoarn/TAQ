@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AuthContext, AuthContextType } from "../contexts/AuthContext";
 import { useNavigate, useParams } from "react-router-dom";
-import { IUser } from "../interfaces/User";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { userSchema } from "../schemas/authSchema";
-import instance from "../apis";
 import { toast, ToastContainer } from "react-toastify";
+import { AuthContext, AuthContextType } from "../contexts/AuthContext";
+import { userSchema } from "../schemas/authSchema";
+import { IUser } from "../interfaces/User";
+import instance from "../apis";
 
 const MyProfile = () => {
   const [avatar, setAvatar] = useState<string>("");
