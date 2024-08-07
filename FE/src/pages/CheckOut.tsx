@@ -1,48 +1,50 @@
-import { joiResolver } from '@hookform/resolvers/joi'
-import { useMutation } from '@tanstack/react-query'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
-import useCart from '../hooks/useCart'
-import useLocalStorage from '../hooks/useStorage'
-import { ICustomerInfo, IOrder } from '../interfaces/Order'
-import { customerInfoSchema } from '../schemas/orderSchema'
-import instance from '../apis'
+import { useNavigate } from "react-router-dom";
+import useCart from "../hooks/useCart";
+import { ICustomerInfo, IOrder, IOrderItem } from "../interfaces/Order";
+import { customerInfoSchema } from "../schemas/orderSchema";
+import { useMutation } from "@tanstack/react-query";
+import instance from "../apis";
+import { joiResolver } from "@hookform/resolvers/joi";
+import { useForm } from "react-hook-form";
+import { useAuth } from "../contexts/AuthContext";
+
 
 const CheckOut = () => {
-    const nav = useNavigate()
-    const { data: cartData, calculateTotal } = useCart()
-    const [user] = useLocalStorage("user", {})
-    const userId = user?.user?._id;
-    const shippingFee = 30000; 
-    // console.log(userId)
-    const {
-      register,
-      handleSubmit,
-      formState: { errors },
-    } = useForm<ICustomerInfo>({
-      resolver: joiResolver(customerInfoSchema),
-    });
-    const { mutate } = useMutation({
-      mutationFn: async (order: IOrder) => {
-        const { data } = await instance.post(`/order`, order);
-        return data;
-      },
-      onSuccess: () => {
-        nav('/thankyou');
-        alert('Đặt hàng thành công');
-        window.location.reload();
-      },
-    });
-    const onSubmit = (data: ICustomerInfo) => {
-      const order: IOrder = {
-        userId: userId as string,
-        items: cartData?.products || [],
-        totalPrice: calculateTotal(),
-        customerInfo: data,
-      };
-      mutate(order);
+  const nav = useNavigate();
+  const { data: cartData, calculateTotal } = useCart();
+  const { user } = useAuth();
+  const userId = user?._id;
+  const shippingFee = 30000;   
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ICustomerInfo>({
+    resolver: joiResolver(customerInfoSchema),
+  });
+
+  const { mutate } = useMutation({
+    mutationFn: async (order: IOrder) => {
+      const { data } = await instance.post(`/order`, order);
+      return data;
+    },
+    onSuccess: () => {
+      nav('/thankyou');
+      alert('Đặt hàng thành công');
+      window.location.reload();
+    },
+  });
+
+  const onSubmit = (data: ICustomerInfo) => {
+    const order: IOrder = {
+      userId: userId as string,
+      items: cartData?.products || [],
+      totalPrice: calculateTotal(),
+      customerInfo: data,
     };
-    const totalAmount = calculateTotal() + shippingFee;
+    mutate(order);
+  };
+  const totalAmount = calculateTotal() + shippingFee;
   return (
     <div>
       <div className="container mx-auto">
@@ -165,7 +167,7 @@ const CheckOut = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CheckOut
+export default CheckOut;

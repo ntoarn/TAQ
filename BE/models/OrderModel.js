@@ -1,22 +1,22 @@
 import mongoose from 'mongoose';
 
 const orderItemSchema = new mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    auto: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  quantity: {
-    type: Number,
-    required: true,
-  }
+   title: {
+     type: String,
+     required: true,
+   },
+   image: {
+     type: String,
+     required: true,
+   },
+   price: {
+     type: Number,
+     required: true,
+   },
+   quantity: {
+     type: Number,
+     required: true,
+   }
 });
 
 const orderSchema = new mongoose.Schema({
@@ -26,9 +26,13 @@ const orderSchema = new mongoose.Schema({
       ref: "User",
     },
   ],
-  items: [orderItemSchema],
+  items:[orderItemSchema],
   orderNumber: {
-    type: String
+    type: String,
+    unique: true,
+    default: function() {
+      return `ORD-${Date.now()}`;
+    },
   },
   customerInfo: {
     name: {
@@ -44,15 +48,16 @@ const orderSchema = new mongoose.Schema({
       required: true,
     },
     phone: {
-      type: String, // Đảm bảo phone là String nếu có số bắt đầu bằng 0
+      type: String,
       required: true,
     },
     payment: {
       type: String,
       required: true,
     },
-    city: {
+    city:{
       type: String,
+      required: true,
     }
   },
   totalPrice: {
@@ -64,18 +69,9 @@ const orderSchema = new mongoose.Schema({
     enum: ["pending", "confirmed", "shipped", "delivered"],
     default: "pending",
   }
-}, 
-{ timestamps: true, versionKey: false });
+},
+{ timestamps: true, versionKey: false }
+);
 
-orderSchema.pre("save", function (next) {
-  if (!this.orderNumber) {
-    this.orderNumber = generateOrderNumber();
-  }
-  next();
-});
-
-function generateOrderNumber() {
-  return `ORD-${Date.now()}`;
-}
 
 export default mongoose.model("Order", orderSchema);
