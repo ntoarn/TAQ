@@ -94,7 +94,7 @@ export const createProduct = async (req, res, next) => {
       data: product,
     });
   } catch (error) {
-    console.error("Error creating product:", error); 
+    console.error("Error creating product:", error);
     return res.status(500).json({
       message: "Tạo sản phẩm thất bại",
       error: error.message,
@@ -190,7 +190,7 @@ export const removeProduct = async (req, res, next) => {
 export const getProductsByCategory = async (req, res) => {
   try {
     const { categoryId } = req.params;
-    
+
     const products = await ProductModel.find({ categoryId })
       .populate("categoryId")
       .populate("sizeId")
@@ -213,3 +213,32 @@ export const getProductsByCategory = async (req, res) => {
   }
 };
 
+export const getProductsByTitle = async (req, res) => {
+  let data = await ProductModel.find({
+    $or: [{ title: { $regex: req.params.key } }],
+  });
+  res.send(data);
+};
+
+export const getProductsByPriceRange = async (req, res) => {
+  try {
+    const { key } = req.params;
+
+    // Tách minPrice và maxPrice từ key, giả sử key có dạng "min-max"
+    const [minPrice, maxPrice] = key.split("-").map(Number);
+
+    if (!minPrice || !maxPrice) {
+      return res.status(400).json({ message: "Invalid price range" });
+    }
+
+    const products = await ProductModel.find({
+      price: { $gte: minPrice, $lte: maxPrice },
+    });
+
+    res.json(products);
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};

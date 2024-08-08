@@ -21,6 +21,8 @@ import ThankYou from "./pages/ThankYou";
 import AuthForm from "./components/AuthForm/AuthForm";
 import ForgotPassword from "./pages/ForgotPassword";
 import MyProfile from "./pages/MyProfile";
+import Search from "./pages/Search";
+import PriceRangeSearch from "./pages/PriceRangeSearch";
 
 function App() {
   return (
@@ -38,10 +40,9 @@ function App() {
           <Route path="/thankyou" element={<ThankYou />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/myprofile/:id" element={<MyProfile />} />
-          <Route
-            path="/product-detail/:id"
-            element={<ProductDetail />}
-          />
+          <Route path="/search/:searchKey" element={<Search />} />
+          <Route path="/search-by-price" element={<PriceRangeSearch />} />
+          <Route path="/product-detail/:id" element={<ProductDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<AuthForm isLogin />} />
           <Route path="/register" element={<AuthForm />} />
@@ -55,7 +56,6 @@ function App() {
           <Route path="/admin/category" element={<ListCategory />} />
           <Route path="/admin/categories-add" element={<CategoryForm />} />
           <Route path="/admin/categories/edit/:id" element={<CategoryForm />} />
-
 
           <Route path="/admin/order" element={<OrderAdmin />} />
           <Route path="/admin/users" element={<ListUser />} />

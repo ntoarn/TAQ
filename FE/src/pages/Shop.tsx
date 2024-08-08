@@ -1,8 +1,9 @@
+// src/pages/Shop.tsx
 import { useEffect, useState } from "react";
 import { Category, Product } from "../interfaces/Product";
 import { Link } from "react-router-dom";
 import instance from "../apis";
-
+import "./search.scss";
 const Shop = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -23,8 +24,8 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const endpoint = selectedCategory 
-          ? `/products/category/${selectedCategory}` 
+        const endpoint = selectedCategory
+          ? `/products/category/${selectedCategory}`
           : "/products";
         const { data } = await instance.get(endpoint);
         setProducts(data.data);
@@ -39,7 +40,7 @@ const Shop = () => {
     <>
       <section className="pt-10">
         <div className="w-4/5 mx-auto mb-6">
-          <select 
+          <select
             className="p-2 border border-gray-300 rounded"
             value={selectedCategory || ""}
             onChange={(e) => setSelectedCategory(e.target.value)}
@@ -51,6 +52,9 @@ const Shop = () => {
               </option>
             ))}
           </select>
+          <Link to={`/search-by-price`} className="ml-2">
+            <button className="search-button">Tìm kiếm theo giá</button>
+          </Link>
         </div>
         <div className="flex flex-wrap w-4/5 mx-auto">
           {products.map((product) => (
