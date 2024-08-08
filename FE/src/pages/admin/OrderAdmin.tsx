@@ -3,6 +3,7 @@ import { IOrder } from '../../interfaces/Order';
 import instance from '../../apis';
 import StatusUpdateModal from '../../components/StatusUpdateModal';
 import Modal from './../../components/Model';
+import { toast, ToastContainer } from 'react-toastify';
 
 const OrderAdmin: React.FC = () => {
   const [orders, setOrders] = useState<IOrder[]>([]);
@@ -43,12 +44,14 @@ const OrderAdmin: React.FC = () => {
   
     // Kiểm tra trạng thái của đơn hàng trước khi cập nhật
     if (orderToUpdate.status === "Hủy") {
-      alert("Không thể cập nhật trạng thái của đơn hàng đã hủy");
+      // alert("Không thể cập nhật trạng thái của đơn hàng đã hủy");
+      toast.error("Không thể cập nhật trạng thái của đơn hàng đã hủy")
       return;
     }
     // Kiểm tra trạng thái của đơn hàng trước khi cập nhật
     if (orderToUpdate.status === "Đã giao hàng") {
-      alert("Không thể cập nhật trạng thái của đơn hàng đã giao");
+      // alert("Không thể cập nhật trạng thái của đơn hàng đã giao");
+      toast.error("Không thể cập nhật trạng thái của đơn hàng đã giao")
       return;
     }
   
@@ -165,7 +168,9 @@ const OrderAdmin: React.FC = () => {
         onClose={handleCloseStatusUpdateModal}
         onUpdateStatus={handleUpdateStatus}
       />
+      <ToastContainer/>
     </div>
+    
   );
 };
 

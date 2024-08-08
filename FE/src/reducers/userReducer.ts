@@ -4,10 +4,10 @@ type State = {
   users: IUser[];
 };
 
-type Action = {
-  type: string;
-  payload: any;
-};
+type Action = 
+| { type: "GET_USERS"; payload: IUser[] }
+| { type: "UPDATE_USER"; payload: IUser }
+| { type: "REMOVE_USER"; payload: string }
 
 const userReducer = (state: State, action: Action) => {
   switch (action.type) {

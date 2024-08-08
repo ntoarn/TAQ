@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema(
         type: String,
         default: "member"
     },
+    isLocked: { type: Boolean, default: false },
   },
   { timestamps: true, versionKey: false }
 );

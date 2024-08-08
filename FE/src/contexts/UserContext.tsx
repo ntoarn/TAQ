@@ -20,7 +20,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         (async () => {
             try {
                 const { data } = await instance.get(`/users`)
-                dispatch({ type: 'SET_USERS', payload: data.data })
+                dispatch({ type: 'GET_USERS', payload: data.data })
             } catch (error) {
                 console.error("Error fetching users:", error)
             }
@@ -31,7 +31,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         if (confirm("Are you sure you want to delete?")) {
             try {
                 await instance.delete(`/users/${id}`)
-                dispatch({ type: 'DELETE_USER', payload: id })
+                dispatch({ type: 'REMOVE_USER', payload: id })
             } catch (error) {
                 console.error("Error deleting users:", error)
             }
@@ -39,20 +39,25 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     const handleUser = async (user: IUser) => {
-		try {
-			if (user._id) {
-                const { data } = await instance.put(`/users/me/${user._id}`, user);
-                dispatch({ type: "UPDATE_USER", payload: data });
-                alert(data.message);
-                navigate("/admin/user");
-              } else {
-                alert("Loi edit");
-              }
-			navigate("/admin/user");
-		} catch (error) {
-			console.log(error);
-		}
-	};
+        try {
+            if (user._id) {
+                const { data } = await instance.put(`/users/${user._id}`, user);
+                if (data.isLocked) {
+                    alert("Tài khoản đã bị khóa");
+                    // Xử lý khi tài khoản bị khóa
+                } else {
+                    dispatch({ type: "UPDATE_USER", payload: data });
+                    alert(data.message);
+                    navigate("/admin/user");
+                }
+            } else {
+                alert("Lỗi chỉnh sửa");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    
 
     return (
         <UserContext.Provider value={{ state, handleRemoveUser, handleUser }}>
