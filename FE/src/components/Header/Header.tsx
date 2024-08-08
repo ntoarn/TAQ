@@ -96,7 +96,7 @@ const Header = () => {
         </nav>
 
         {/* Main Navbar */}
-        <nav className="bg-white shadow-md">
+        <nav className="bg-white shadow-md relative z-10">
           <div className="container mx-auto flex justify-between items-center py-4">
             <Link to="/" className="text-xl font-bold text-gray-800">
               TAQ
@@ -128,7 +128,7 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 relative z-20">
               {/* Search and Cart Icons */}
               <div className="relative hidden lg:flex items-center">
                 <Link to="/cart" className="mr-4">
@@ -162,7 +162,7 @@ const Header = () => {
                   {isOpen && (
                     <div
                       id="dropdown-menu"
-                      className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg"
+                      className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-30"
                     >
                       <p className="block px-4 py-2 font-bold text-gray-700 bg-slate-400">
                         {user?.name}
@@ -172,6 +172,12 @@ const Header = () => {
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Thông tin cá nhân
+                      </Link>
+                      <Link
+                        to={`/myprofile/${user?._id}`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Lịch sử mua hàng
                       </Link>
                       <p
                         className="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
@@ -184,10 +190,10 @@ const Header = () => {
                 </div>
               ) : (
                 <Link to="/login">
-                <button className=" border-black shadow-lg shadow-slate-600/50 hover:text-black hover:border-0 bg-black hover:bg-white text-white lg:px-6 lg:py-3 px-2 py-2 lg:rounded-xl rounded-lg text-lg font-medium">
-                  Đăng nhập
-                </button>
-              </Link>
+                  <button className=" border-black shadow-lg shadow-slate-600/50 hover:text-black hover:border-0 bg-black hover:bg-white text-white lg:px-6 lg:py-3 px-2 py-2 lg:rounded-xl rounded-lg text-lg font-medium">
+                    Đăng nhập
+                  </button>
+                </Link>
               )}
             </div>
           </div>

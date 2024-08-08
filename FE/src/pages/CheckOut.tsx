@@ -29,7 +29,7 @@ const CheckOut = () => {
       return data;
     },
     onSuccess: () => {
-      nav('/thankyou');
+      nav('/bill');
       alert('Đặt hàng thành công');
       window.location.reload();
     },

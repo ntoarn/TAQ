@@ -21,6 +21,7 @@ import ThankYou from "./pages/ThankYou";
 import AuthForm from "./components/AuthForm/AuthForm";
 import ForgotPassword from "./pages/ForgotPassword";
 import MyProfile from "./pages/MyProfile";
+import BillPage from "./pages/Bill";
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
-          <Route path="/thankyou" element={<ThankYou />} />
+          <Route path="/bill" element={<BillPage />} />
+          {/* <Route path="/thankyou" element={<ThankYou />} /> */}
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/myprofile/:id" element={<MyProfile />} />
           <Route
