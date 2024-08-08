@@ -1,10 +1,13 @@
 import { Router } from "express";
-import { createOrder, getOrders } from "../controllers/order.js";
+import { cancelOrder, createOrder, getOrders, getOrdersByUser, updateOrderStatus } from "../controllers/order.js";
 
 
 
 const orderRouter = Router();
 orderRouter.post("/", createOrder);
 orderRouter.get("/", getOrders);
+orderRouter.put("/status", updateOrderStatus);
+orderRouter.get("/user/:userId", getOrdersByUser);
+orderRouter.post("/cancel", cancelOrder)
 
 export default orderRouter;

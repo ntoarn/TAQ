@@ -212,33 +212,36 @@ export const getProductsByCategory = async (req, res) => {
     });
   }
 };
-
-export const getProductsByTitle = async (req, res) => {
-  let data = await ProductModel.find({
-    $or: [{ title: { $regex: req.params.key } }],
-  });
-  res.send(data);
-};
-
-export const getProductsByPriceRange = async (req, res) => {
+export const searchProducts = async (req, res) => {
   try {
-    const { key } = req.params;
-
-    // Tách minPrice và maxPrice từ key, giả sử key có dạng "min-max"
-    const [minPrice, maxPrice] = key.split("-").map(Number);
-
-    if (!minPrice || !maxPrice) {
-      return res.status(400).json({ message: "Invalid price range" });
-    }
+    const { query } = req.query;
+    console.log("Search query:", query); // Log query để kiểm tra
 
     const products = await ProductModel.find({
-      price: { $gte: minPrice, $lte: maxPrice },
-    });
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { description: { $regex: query, $options: "i" } },
+      ],
+    }).populate("categoryId").populate("sizeId").populate("colorId");
 
-    res.json(products);
+    console.log("Products found:", products.length); // Log số lượng sản phẩm tìm thấy
+
+    if (products.length > 0) {
+      return res.status(200).json({
+        message: "Tìm kiếm sản phẩm thành công",
+        data: products,
+      });
+    } else {
+      return res.status(404).json({
+        message: "Không tìm thấy sản phẩm nào",
+      });
+    }
   } catch (error) {
+    console.error("Error during product search:", error); // Log lỗi cụ thể
     return res.status(500).json({
       message: error.message,
+      name: error.name,
     });
   }
 };
+

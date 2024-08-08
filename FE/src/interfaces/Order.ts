@@ -1,4 +1,3 @@
-
 export interface ICustomerInfo {
   name: string;
   email: string;
@@ -17,10 +16,12 @@ export interface IOrderItem {
 }
 
 export interface IOrder {
+  _id: string;
   userId: string;
   items: IOrderItem[];
   totalPrice: number;
   customerInfo: ICustomerInfo;
+  status: string;
 }
 
   

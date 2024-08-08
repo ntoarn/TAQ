@@ -22,7 +22,7 @@ const LayoutAdmin = () => {
                   to="/admin"
                 >
                   <FaTachometerAlt className="mr-2" />
-                  Dashboard
+                  Thống kê
                 </Link>
               </li>
               <li>
@@ -31,7 +31,7 @@ const LayoutAdmin = () => {
                   to="/admin/users"
                 >
                   <FaUser className="mr-2" />
-                  User
+                  Người dùng
                 </Link>
               </li>
               <li>
@@ -40,7 +40,7 @@ const LayoutAdmin = () => {
                   to="/admin/product"
                 >
                   <FaProductHunt className="mr-2" />
-                  Product
+                  Sản phẩm
                 </Link>
               </li>
               <li>
@@ -49,7 +49,7 @@ const LayoutAdmin = () => {
                   to="/admin/category"
                 >
                   <FaList className="mr-2" />
-                  Categories
+                  Danh mục
                 </Link>
               </li>
               <li>
@@ -58,7 +58,7 @@ const LayoutAdmin = () => {
                   to="/admin/order"
                 >
                   <FaShoppingCart className="mr-2" />
-                  Order
+                  Đơn hàng
                 </Link>
               </li>
               <li>

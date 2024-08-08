@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Category, Product } from "../interfaces/Product";
 import { Link } from "react-router-dom";
 import instance from "../apis";
-import "./search.scss";
 const Shop = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
