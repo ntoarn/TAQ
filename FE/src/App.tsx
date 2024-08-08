@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
+import AuthForm from "./components/AuthForm/AuthForm";
 import LayoutAdmin from "./components/Layout/LayoutAdmin/LayoutAdmin";
 import LayoutClient from "./components/Layout/LayoutClient/LayoutClient";
 import AboutUs from "./pages/AboutUs";
@@ -10,18 +11,18 @@ import ListProduct from "./pages/admin/ListProduct";
 import ListUser from "./pages/admin/ListUser";
 import OrderAdmin from "./pages/admin/OrderAdmin";
 import ProductForm from "./pages/admin/ProductForm";
+import BillPage from "./pages/Bill";
 import Blog from "./pages/Blog";
 import Cart from "./pages/Cart";
 import CheckOut from "./pages/CheckOut";
 import Contact from "./pages/Contact";
+import ForgotPassword from "./pages/ForgotPassword";
 import Home from "./pages/Home";
+import MyProfile from "./pages/MyProfile";
+import OrderHistory from "./pages/OrderHistory";
 import ProductDetail from "./pages/ProductDetail";
 import Shop from "./pages/Shop";
-import ThankYou from "./pages/ThankYou";
-import AuthForm from "./components/AuthForm/AuthForm";
-import ForgotPassword from "./pages/ForgotPassword";
-import MyProfile from "./pages/MyProfile";
-import BillPage from "./pages/Bill";
+import SearchResults from "./pages/Search";
 
 function App() {
   return (
@@ -40,11 +41,10 @@ function App() {
           {/* <Route path="/thankyou" element={<ThankYou />} /> */}
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/myprofile/:id" element={<MyProfile />} />
-          <Route
-            path="/product-detail/:id"
-            element={<ProductDetail />}
-          />
+          <Route path="/orderhistory/:id" element={<OrderHistory />} />
+          <Route path="/product-detail/:id" element={<ProductDetail />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="search" element={<SearchResults/>}/>
           <Route path="/login" element={<AuthForm isLogin />} />
           <Route path="/register" element={<AuthForm />} />
         </Route>
@@ -57,7 +57,6 @@ function App() {
           <Route path="/admin/category" element={<ListCategory />} />
           <Route path="/admin/categories-add" element={<CategoryForm />} />
           <Route path="/admin/categories/edit/:id" element={<CategoryForm />} />
-
 
           <Route path="/admin/order" element={<OrderAdmin />} />
           <Route path="/admin/users" element={<ListUser />} />

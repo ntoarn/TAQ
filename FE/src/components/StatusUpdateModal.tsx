@@ -11,7 +11,7 @@ interface StatusUpdateModalProps {
 const StatusUpdateModal: React.FC<StatusUpdateModalProps> = ({ isOpen, currentStatus, onClose, onUpdateStatus }) => {
   const [selectedStatus, setSelectedStatus] = useState<string>(currentStatus);
 
-  const statuses = ["pending", "confirmed", "shipped", "delivered", "cancelled"];
+  const statuses = ["Chờ xác nhận", "Đã xác nhận", "Đang giao", "Đã giao hàng", "Hủy"];
 
   if (!isOpen) return null;
 
@@ -24,7 +24,7 @@ const StatusUpdateModal: React.FC<StatusUpdateModalProps> = ({ isOpen, currentSt
         >
           &times;
         </button>
-        <h2 className="text-xl font-bold mb-4">Update Order Status</h2>
+        <h2 className="text-xl font-bold mb-4">Cập nhập trang thái đơn hàng</h2>
         <select
           value={selectedStatus}
           onChange={(e) => setSelectedStatus(e.target.value)}

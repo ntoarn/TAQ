@@ -5,18 +5,23 @@ import {
   getProductById,
   getProductsByCategory,
   removeProduct,
-  updateProduct,
+  searchProducts,
+  updateProduct
 } from "../controllers/product.js";
 import { checkAuth } from "../middlewares/checkAuth.js";
 import { checkIsAdmin } from "../middlewares/checkIsAuth.js";
 
 const productRouter = Router();
+
+productRouter.get("/search", searchProducts);
 productRouter.get("/", getAllProduct);
 productRouter.get("/:id", getProductById);
-productRouter.get('/category/:categoryId', getProductsByCategory)
+productRouter.get("/category/:categoryId", getProductsByCategory);
 
-productRouter.use("/", checkAuth, checkIsAdmin); 
+// Các route cần xác thực
+productRouter.use("/", checkAuth, checkIsAdmin);
 productRouter.post("/", createProduct);
 productRouter.patch("/:id", updateProduct);
 productRouter.delete("/:id", removeProduct);
+
 export default productRouter;

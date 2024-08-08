@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import {
   FiFacebook,
@@ -17,9 +17,11 @@ import { AuthContext, AuthContextType } from "../../contexts/AuthContext";
 
 const Header = () => {
   const [avatar, setAvatar] = useState<string>("");
-  const nav = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const { user, logout } = useContext(AuthContext) as AuthContextType;
+  const navigate = useNavigate();
+
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   useEffect(() => {
@@ -44,6 +46,13 @@ const Header = () => {
     window.addEventListener("click", handleClickOutside);
     return () => window.removeEventListener("click", handleClickOutside);
   }, [user?._id]);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?query=${searchTerm}`);
+    }
+  };
 
   return (
     <>
@@ -96,7 +105,7 @@ const Header = () => {
         </nav>
 
         {/* Main Navbar */}
-        <nav className="bg-white shadow-md relative z-10">
+        <nav className="bg-white shadow-md">
           <div className="container mx-auto flex justify-between items-center py-4">
             <Link to="/" className="text-xl font-bold text-gray-800">
               TAQ
@@ -128,22 +137,28 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-            <div className="flex items-center space-x-4 relative z-20">
+            <div className="flex items-center space-x-6">
               {/* Search and Cart Icons */}
-              <div className="relative hidden lg:flex items-center">
-                <Link to="/cart" className="mr-4">
-                  <FiShoppingCart className="text-gray-800" size={30} />
-                </Link>
-                <input
-                  type="text"
-                  className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded-lg py-1 px-3"
-                  placeholder="Tìm kiếm ..."
-                />
-                <FaSearch className="absolute right-2 top-2 text-gray-600" />
+              <div className="relative flex items-center">
+                <form onSubmit={handleSearch} className="flex items-center">
+                  <input
+                    type="text"
+                    className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded-lg py-1 px-3"
+                    placeholder="Tìm kiếm ..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-2 top-2 text-gray-600"
+                  >
+                    <FaSearch />
+                  </button>
+                </form>
               </div>
 
-              <Link to="#" className="lg:hidden">
-                <FaSearch className="text-gray-800" size={30} />
+              <Link to="/cart" className="relative">
+                <FiShoppingCart className="text-gray-800" size={30} />
               </Link>
 
               {user ? (
@@ -162,7 +177,7 @@ const Header = () => {
                   {isOpen && (
                     <div
                       id="dropdown-menu"
-                      className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-30"
+                      className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg"
                     >
                       <p className="block px-4 py-2 font-bold text-gray-700 bg-slate-400">
                         {user?.name}
@@ -174,7 +189,7 @@ const Header = () => {
                         Thông tin cá nhân
                       </Link>
                       <Link
-                        to={`/myprofile/${user?._id}`}
+                        to={`/orderhistory/${user?._id}`}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Lịch sử mua hàng
@@ -190,7 +205,7 @@ const Header = () => {
                 </div>
               ) : (
                 <Link to="/login">
-                  <button className=" border-black shadow-lg shadow-slate-600/50 hover:text-black hover:border-0 bg-black hover:bg-white text-white lg:px-6 lg:py-3 px-2 py-2 lg:rounded-xl rounded-lg text-lg font-medium">
+                  <button className="border-black shadow-lg shadow-slate-600/50 hover:text-black hover:border-0 bg-black hover:bg-white text-white lg:px-6 lg:py-3 px-2 py-2 lg:rounded-xl rounded-lg text-lg font-medium">
                     Đăng nhập
                   </button>
                 </Link>

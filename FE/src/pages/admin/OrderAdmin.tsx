@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { IOrder } from '../../interfaces/Order';
 import instance from '../../apis';
-import Modal from '../../components/Model';
 import StatusUpdateModal from '../../components/StatusUpdateModal';
+import Modal from './../../components/Model';
 
 const OrderAdmin: React.FC = () => {
   const [orders, setOrders] = useState<IOrder[]>([]);
@@ -13,17 +13,17 @@ const OrderAdmin: React.FC = () => {
   const [orderToUpdate, setOrderToUpdate] = useState<IOrder | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        const response = await instance.get('/order');
-        setOrders(response.data);
-        setFilteredOrders(response.data);
-      } catch (error) {
-        console.error('Error fetching orders:', error);
-      }
-    };
+  const fetchOrders = async () => {
+    try {
+      const response = await instance.get('/order');
+      setOrders(response.data);
+      setFilteredOrders(response.data);
+    } catch (error) {
+      console.error('Error fetching orders:', error);
+    }
+  };
 
+  useEffect(() => {
     fetchOrders();
   }, []);
 
@@ -40,7 +40,18 @@ const OrderAdmin: React.FC = () => {
 
   const handleUpdateStatus = async (status: string) => {
     if (!orderToUpdate) return;
-
+  
+    // Kiểm tra trạng thái của đơn hàng trước khi cập nhật
+    if (orderToUpdate.status === "Hủy") {
+      alert("Không thể cập nhật trạng thái của đơn hàng đã hủy");
+      return;
+    }
+    // Kiểm tra trạng thái của đơn hàng trước khi cập nhật
+    if (orderToUpdate.status === "Đã giao hàng") {
+      alert("Không thể cập nhật trạng thái của đơn hàng đã giao");
+      return;
+    }
+  
     try {
       const response = await instance.put('/order/status', { orderId: orderToUpdate._id, status });
       setOrders(prevOrders => prevOrders.map(order => (order._id === orderToUpdate._id ? response.data : order)));

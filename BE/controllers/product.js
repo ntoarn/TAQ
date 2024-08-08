@@ -94,7 +94,7 @@ export const createProduct = async (req, res, next) => {
       data: product,
     });
   } catch (error) {
-    console.error("Error creating product:", error); 
+    console.error("Error creating product:", error);
     return res.status(500).json({
       message: "Tạo sản phẩm thất bại",
       error: error.message,
@@ -190,7 +190,7 @@ export const removeProduct = async (req, res, next) => {
 export const getProductsByCategory = async (req, res) => {
   try {
     const { categoryId } = req.params;
-    
+
     const products = await ProductModel.find({ categoryId })
       .populate("categoryId")
       .populate("sizeId")
@@ -206,6 +206,38 @@ export const getProductsByCategory = async (req, res) => {
       message: "Không có sản phẩm nào trong danh mục này",
     });
   } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+      name: error.name,
+    });
+  }
+};
+export const searchProducts = async (req, res) => {
+  try {
+    const { query } = req.query;
+    console.log("Search query:", query); // Log query để kiểm tra
+
+    const products = await ProductModel.find({
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { description: { $regex: query, $options: "i" } },
+      ],
+    }).populate("categoryId").populate("sizeId").populate("colorId");
+
+    console.log("Products found:", products.length); // Log số lượng sản phẩm tìm thấy
+
+    if (products.length > 0) {
+      return res.status(200).json({
+        message: "Tìm kiếm sản phẩm thành công",
+        data: products,
+      });
+    } else {
+      return res.status(404).json({
+        message: "Không tìm thấy sản phẩm nào",
+      });
+    }
+  } catch (error) {
+    console.error("Error during product search:", error); // Log lỗi cụ thể
     return res.status(500).json({
       message: error.message,
       name: error.name,
