@@ -104,7 +104,10 @@ export const createProduct = async (req, res, next) => {
 
 export const getProductById = async (req, res) => {
   try {
-    const product = await ProductModel.findById(req.params.id);
+    const product = await ProductModel.findById(req.params.id).populate('colorId')
+      .populate('sizeId')
+      .populate('categoryId');
+    ;
     if (!product) {
       return res.status(400).json({
         message: "Lay danh sach san pham that bai",

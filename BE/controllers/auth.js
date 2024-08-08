@@ -11,7 +11,7 @@ export const register = async (req, res, next) => {
 				message: "Email đã tồn tại",
 			});
 		}
-
+		
 		const hashPass =  hashPassword(password); 
 		if (!hashPass) {
 			return res.status(400).json({
@@ -49,6 +49,11 @@ export const login = async (req, res, next) => {
 				message: "Email chua dang ky!",
 			});
 		}
+		if (useExists.isLocked) {
+            return res.status(403).json({
+                message: "Tài khoản của bạn đã bị khóa!",
+            });
+        }
 
 		const isMatch = comparePassword(password, useExists.password);
 		if (!isMatch) {
@@ -120,3 +125,19 @@ export const getUser = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
+// khoa user
+export const lockUser = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { isLocked } = req.body;
+
+        const user = await UserModel.findByIdAndUpdate(id, { isLocked }, { new: true });
+        if (!user) {
+            return res.status(404).json({ message: 'Người dùng không tìm thấy' });
+        }
+
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
