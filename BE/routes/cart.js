@@ -16,5 +16,6 @@ cartRouter.put("/update-product-quantity", updateProductQuantity);
 cartRouter.post("/remove-cart", removeFromCart);
 cartRouter.post("/increase", increaseProductQuantity)
 cartRouter.post("/decrease", decreaseProductQuantity)
+cartRouter.post("/decrease", decreaseProductQuantity)
 
 export default cartRouter;

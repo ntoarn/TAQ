@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { data, calculateTotal, mutate, isLoading, isError } = useCart()
-  const shippingFee = 30000; 
+  const shippingFee = 25000; 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error</p>;
   const totalAmount = calculateTotal() + shippingFee;

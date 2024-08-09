@@ -22,6 +22,7 @@ export interface IOrder {
   totalPrice: number;
   customerInfo: ICustomerInfo;
   status: string;
+  payment: string
 }
 
   

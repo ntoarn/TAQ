@@ -51,9 +51,6 @@ const Shop = () => {
               </option>
             ))}
           </select>
-          <Link to={`/search-by-price`} className="ml-2">
-            <button className="search-button">Tìm kiếm theo giá</button>
-          </Link>
         </div>
         <div className="flex flex-wrap w-4/5 mx-auto">
           {products.map((product) => (

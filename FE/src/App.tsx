@@ -21,8 +21,8 @@ import Home from "./pages/Home";
 import MyProfile from "./pages/MyProfile";
 import OrderHistory from "./pages/OrderHistory";
 import ProductDetail from "./pages/ProductDetail";
-import Shop from "./pages/Shop";
 import SearchResults from "./pages/Search";
+import Shop from "./pages/Shop";
 
 function App() {
   return (

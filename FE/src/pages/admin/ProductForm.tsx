@@ -12,7 +12,7 @@ import instance from "../../apis";
 
 const ProductForm = () => {
   const { id } = useParams<{ id?: string }>();
-  const { handleSubmitProduct } = useContext(ProductContext)
+  const { handleSubmitProduct } = useContext(ProductContext);
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [colors, setColors] = useState<IColor[]>([]);
   const [sizes, setSizes] = useState<ISize[]>([]);
@@ -29,8 +29,19 @@ const ProductForm = () => {
   useEffect(() => {
     if (id) {
       (async () => {
-        const { data } = await instance.get(`/products/${id}`);
-        reset(data.data);
+        try {
+          const { data } = await instance.get(`/products/${id}`);
+          // Đảm bảo rằng dữ liệu trả về có các thuộc tính colorId, sizeId, và categoryId
+          console.log("Product Data:", data.data);
+          reset({
+            ...data.data,
+            colorId: data.data.colorId?._id, // Đảm bảo giá trị _id của colorId
+            sizeId: data.data.sizeId?._id,   // Đảm bảo giá trị _id của sizeId
+            categoryId: data.data.categoryId?._id, // Đảm bảo giá trị _id của categoryId
+          });
+        } catch (error) {
+          console.error("Failed to fetch product:", error);
+        }
       })();
     }
   }, [id, reset]);
@@ -45,32 +56,39 @@ const ProductForm = () => {
       }
     })();
   }, []);
+
   useEffect(() => {
     (async () => {
       try {
         const { data } = await instance.get("/color");
         setColors(data.data);
       } catch (error) {
-        console.error("Failed to fetch categories:", error);
+        console.error("Failed to fetch colors:", error);
       }
     })();
   }, []);
+
   useEffect(() => {
     (async () => {
       try {
         const { data } = await instance.get("/size");
         setSizes(data.data);
       } catch (error) {
-        console.error("Failed to fetch categories:", error);
+        console.error("Failed to fetch sizes:", error);
       }
     })();
   }, []);
 
   const handleFormSubmit = (data: Product) => {
-    console.log("Form data:", data); 
-    handleSubmitProduct({ ...data, _id: id, categoryId: data.categoryId, colorId: data.colorId, sizeId: data.sizeId });
+    console.log("Form data:", data);
+    handleSubmitProduct({
+      ...data,
+      _id: id,
+      categoryId: data.categoryId,
+      colorId: data.colorId,
+      sizeId: data.sizeId,
+    });
   };
-  
 
   return (
     <div className="container mx-auto p-6 bg-white shadow-md rounded-lg">
@@ -131,7 +149,7 @@ const ProductForm = () => {
             type="number"
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50 focus:ring-blue-300"
             id="quantity"
-            placeholder="quantity"
+            placeholder="Quantity"
             {...register("quantity", { valueAsNumber: true })}
           />
           {errors.quantity?.message && (
@@ -146,7 +164,7 @@ const ProductForm = () => {
             type="text"
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50 focus:ring-blue-300"
             id="image"
-            placeholder="Image"
+            placeholder="Image URL"
             {...register("image")}
           />
           {errors.image?.message && (
@@ -174,7 +192,7 @@ const ProductForm = () => {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="colorId" className="block text-gray-700">
+          <label htmlFor="sizeId" className="block text-gray-700">
             Size
           </label>
           <select
