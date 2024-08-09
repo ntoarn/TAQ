@@ -2,6 +2,7 @@
 import OrderModel from '../models/OrderModel.js';
 import CartModel from '../models/CartModel.js';
 
+// Tạo đơn hàng
 export const createOrder = async (req, res) => {
   try {
     const { userId, items, totalPrice, customerInfo } = req.body;
@@ -9,7 +10,7 @@ export const createOrder = async (req, res) => {
 
     const orderNumber = `ORD-${Date.now()}`;
     const order = await OrderModel.create({ userId, items, totalPrice, customerInfo, orderNumber });
-    await CartModel.findOneAndDelete({ userId });
+    await CartModel.updateOne({ userId }, { $unset: { products: "" } });
     return res.status(201).json(order);
   } catch (error) {
     console.error('Error Creating Order:', error);
@@ -17,6 +18,7 @@ export const createOrder = async (req, res) => {
   }
 };
 
+// Lấy tất cả đơn hàng
 export const getOrders = async (req, res) => {
   try {
     const orders = await OrderModel.find();
@@ -29,6 +31,7 @@ export const getOrders = async (req, res) => {
   }
 };
 
+// Cập nhật trạng thái đơn hàng
 export const updateOrderStatus = async (req, res) => {
   const { orderId, status } = req.body;
   try {
@@ -55,6 +58,7 @@ export const updateOrderStatus = async (req, res) => {
   }
 };
 
+// Lấy đơn hàng của người dùng
 export const getOrdersByUser = async (req, res) => {
   const { userId } = req.params;
   try {
@@ -68,6 +72,7 @@ export const getOrdersByUser = async (req, res) => {
   }
 };
 
+// Hủy đơn hàng
 export const cancelOrder = async (req, res) => {
   const { orderId } = req.body;
   try {
