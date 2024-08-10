@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer tailwind-base {
+  @import 'tailwindcss/base';
+}
+
+@layer antd {
+  @import 'antd/dist/reset.css';
+}
+
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @layer base {
   :root {

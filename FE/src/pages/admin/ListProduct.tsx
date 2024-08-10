@@ -58,7 +58,8 @@ const ListProduct = () => {
                 />
               </td>
               <td className="py-2 px-4 truncate max-w-xs">{product.title}</td>
-              <td className="py-2 px-4">${product.price.toLocaleString()}</td>
+              <td className="py-2 px-4"><span className="text-gray-800">{product.price?.toLocaleString()}</span>
+              <span className="text-gray-600 text-base"> VNĐ</span></td>
               <td className="py-2 px-4 truncate max-w-sm">{product.description}</td>
               <td className="py-2 px-4">{product.quantity}</td>
               <td className="py-2 px-4">{product.colorId?.color}</td>

@@ -70,12 +70,14 @@ const Shop = () => {
                   <p className="text-xs text-gray-600 mb-1">
                     {product.categoryId?.name}
                   </p>
-                  <h5 className="text-lg font-semibold mb-2">
+                  <h5 className="text-lg font-semibold mb-2 text-gray-900 border-b-2 border-gray-300 pb-1">
                     {product.title}
                   </h5>
+
                   <div className="flex items-center mb-4">
                     <span className="text-xl font-bold text-gray-800 mr-2">
-                      ${product.price}
+                    <span className="text-gray-800">{product.price?.toLocaleString()}</span>
+                    <span className="text-gray-600 text-base"> VNĐ</span>
                     </span>
                     {product.colorId?.color && (
                       <span className="text-sm text-gray-500">

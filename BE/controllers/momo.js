@@ -8,7 +8,7 @@ const partnerCode = 'MOMO';
 
 export const Payment = async (req, res) => {
   const { amounts, orderId: orderIdFromBody } = req.body;
-  const redirectUrl = `http://localhost:5173/bill/${orderIdFromBody}`;
+  const redirectUrl = `http://localhost:5173/thankyou`;
   const ipnUrl = 'https://b06f-1-54-211-208.ngrok-free.app/callback';
   const requestType = 'captureWallet';
   const orderInfo = 'pay with MoMo';

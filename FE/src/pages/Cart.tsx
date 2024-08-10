@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { data, calculateTotal, mutate, isLoading, isError } = useCart()
-  const shippingFee = 25000; 
+  const shippingFee = 25000;
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error</p>;
   const totalAmount = calculateTotal() + shippingFee;
@@ -33,7 +33,8 @@ const Cart = () => {
                     <img src={product.image} alt="" className="w-16 h-16 object-cover" />
                   </td>
                   <td className="px-2 py-1 border">{product.title}</td>
-                  <td className="px-2 py-1 border">{product.price}</td>
+                  <td className="px-2 py-1 border"><span className="text-gray-800">{product.price?.toLocaleString()}</span>
+                    <span className="text-gray-600 text-base"> VNĐ</span></td>
                   <td className="px-2 py-1 border">
                     <div className="flex items-center justify-center space-x-2">
                       <button
@@ -51,7 +52,10 @@ const Cart = () => {
                       </button>
                     </div>
                   </td>
-                  <td className="px-2 py-1 border">{product.price * product.quantity}</td>
+                  <td className="px-2 py-1 border">
+                    {(product.price * product.quantity).toLocaleString()} VNĐ
+                  </td>
+
                   <td className="px-2 py-1 border">
                     <button
                       className="text-red-500 hover:text-black"
@@ -89,7 +93,7 @@ const Cart = () => {
             </div>
 
             <div className="mb-4">
-            <p className="text-sm text-gray-600">Phí vận chuyển: {shippingFee.toLocaleString()} VNĐ</p>
+              <p className="text-sm text-gray-600">Phí vận chuyển: {shippingFee.toLocaleString()} VNĐ</p>
             </div>
 
             <p className="text-xl font-semibold mb-4">Tổng cộng: {totalAmount.toLocaleString()} VNĐ</p>

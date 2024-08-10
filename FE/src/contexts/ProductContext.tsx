@@ -42,6 +42,7 @@ export const ProductProvider = ({ children }: { children: React.ReactNode }) => 
 
     const handleSubmitProduct = async (product: Product) => {
         try {
+            
             if (product._id) {
                 // Cập nhật sản phẩm
                 await instance.patch(`/products/${product._id}`, product);

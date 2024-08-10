@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { IOrder } from '../interfaces/Order';
+import { useEffect, useState } from 'react';
 import instance from '../apis';
 import { useAuth } from '../contexts/AuthContext';
+import { IOrder } from '../interfaces/Order';
 
 const OrderHistory = () => {
     const [orders, setOrders] = useState<IOrder[]>([]);
@@ -45,7 +45,7 @@ const OrderHistory = () => {
 
     return (
         <div className="p-6">
-            <h2 className="text-2xl font-bold mb-4 text-center">Lịch Sử Đơn Hàng</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center">Lịch Sử Mua Hàng</h2>
             {error && <p className="text-red-500 text-center">{error}</p>}
             {orders.length === 0 ? (
                 <p className="text-gray-600 text-center">Không có đơn hàng nào.</p>
@@ -67,7 +67,7 @@ const OrderHistory = () => {
                                 <tr key={order._id} className="hover:bg-gray-100">
                                     <td className="px-4 py-2 border-b text-center">{order.orderNumber}</td>
                                     <td className="px-4 py-2 border-b text-center">{new Date(order.createdAt).toLocaleDateString()}</td>
-                                    <td className="px-4 py-2 border-b text-center">{order.totalPrice} VND</td>
+                                    <td className="px-4 py-2 border-b text-center">{order.totalPrice.toLocaleString()} VND</td>
                                     <td className="px-4 py-2 border-b text-center">{order.status}</td>
                                     <td className="px-4 py-2 border-b text-center">
                                         <button
@@ -78,7 +78,7 @@ const OrderHistory = () => {
                                         </button>
                                     </td>
                                     <td className="px-4 py-2 border-b text-center">
-                                        {order.status === "Chờ xác nhận" && (
+                                        {(order.status === "Chờ xác nhận" || order.status === "Đã xác nhận") && (
                                             <button
                                                 className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 text-xs"
                                                 onClick={() => handleCancelOrder(order._id)}
@@ -86,6 +86,7 @@ const OrderHistory = () => {
                                                 Hủy
                                             </button>
                                         )}
+
                                     </td>
                                 </tr>
                             ))}
