@@ -29,7 +29,7 @@ const ProductDetail = () => {
     };
     fetchProduct();
   }, [id]);
-  
+
   const { mutate } = useMutation({
     mutationFn: async ({ productId, quantity }: { productId: string, quantity: number }) => {
       const { data } = await instance.post(`/cart/add-to-cart`, {
@@ -58,7 +58,7 @@ const ProductDetail = () => {
       <div className="w-full px-4 py-6 border-t border-b border-gray-200">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-semibold text-gray-700">
-            Product Detail Page
+            Chi tiết sản phẩm
           </h2>
           <ul className="text-right text-sm">
             <li className="inline">
@@ -66,7 +66,7 @@ const ProductDetail = () => {
                 Home &gt;{" "}
               </a>
             </li>
-            <li className="inline">Product Detail Page</li>
+            <li className="inline">Chi tiết sản phẩm</li>
           </ul>
         </div>
       </div>
@@ -88,12 +88,10 @@ const ProductDetail = () => {
                   <h5 className="gi-single-title text-gray-700 text-xl capitalize mb-5 block font-Poppins font-medium leading-9 tracking-tight md:text-lg md:leading-8">
                     {product.title}
                   </h5>
-                  <div className="final-price mb-4 text-gray-700 font-semibold text-xl leading-8 font-Poppins tracking-tight md:text-lg">
-                    {product.price}
-                    <span className="price-des ml-4 text-green-600 font-medium text-lg tracking-tight">
-                      -78%
-                    </span>
+                  <div className="final-price mb-4 text-gray-700 font-semibold text-xl leading-8 tracking-tight md:text-lg">
+                    <span className="text-gray-800">{product?.price?.toLocaleString()}</span> VNĐ
                   </div>
+
                   <div className="gi-single-desc mb-3 text-gray-500 text-sm tracking-tight break-all leading-6 font-Poppins ">
                     {product.description}
                   </div>
@@ -136,7 +134,7 @@ const ProductDetail = () => {
                             mutate({ productId: product._id!, quantity: 1 })
                           }
                         >
-                          Add To Cart
+                          Thêm vào giỏ hàng
                         </button>
                       </div>
                     </div>

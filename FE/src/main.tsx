@@ -11,12 +11,13 @@ import { ProductProvider } from './contexts/ProductContext.tsx'
 import './index.scss'
 import { AuthProvider } from './contexts/AuthContext.tsx'
 import { UserProvider } from './contexts/UserContext.tsx'
-
+import { StyleProvider } from "@ant-design/cssinjs"
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
+      <StyleProvider layer>
       <QueryClientProvider client={queryClient}>
       <ProductProvider>
         <CategoryProvider>
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </CategoryProvider>
       </ProductProvider>
       </QueryClientProvider>
+      </StyleProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

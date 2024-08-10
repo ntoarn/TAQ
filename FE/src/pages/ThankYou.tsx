@@ -1,27 +1,16 @@
-import { useNavigate } from "react-router-dom";
-
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ThankYou = () => {
-  const history = useNavigate();
-
-  const handleBackToHome = () => {
-    history('/');
-  };
-
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-500 text-center">
-      <div className="bg-white p-10 rounded-xl shadow-lg">
-        <h1 className="text-3xl font-semibold mb-6 text-gray-800">Cảm ơn bạn đã ủng hộ</h1>
-        <p className="text-gray-600 mb-8">Chúng tôi rất cảm kích sự ủng hộ của bạn.</p>
-        <button
-          className="px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none transition duration-300"
-          onClick={handleBackToHome}
-        >
-          Back to Home
-        </button>
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-orange-100">
+      <h1 className="text-3xl font-bold text-orange-600">Cảm ơn bạn đã mua hàng!</h1>
+      <p className="mt-4 text-lg text-orange-600">Chúng tôi sẽ xử lý đơn hàng của bạn sớm nhất có thể.</p>
+      <Link to="/" className="mt-6 px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-700">
+        Trở về trang chủ
+      </Link>
     </div>
-  );
-};
+  )
+}
 
-export default ThankYou;
+export default ThankYou

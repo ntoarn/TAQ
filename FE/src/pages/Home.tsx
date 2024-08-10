@@ -54,7 +54,8 @@ const Home = () => {
                   <h5 className="text-lg font-semibold mb-2">{product.title}</h5>
                   <p className="text-gray-600 text-sm mb-2 truncate">{product.description}</p>
                   <p className="text-gray-900 mb-2">
-                    <strong>Giá:</strong> {product.price}
+                  <span className="text-gray-800">{product.price?.toLocaleString()}</span>
+                  <span className="text-gray-600 text-base"> VNĐ</span>
                   </p>
                   <Link to={`/product-detail/${product._id}`}>
                     <button className="w-full px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">
@@ -99,7 +100,8 @@ const Home = () => {
                 <h5 className="text-lg font-semibold mb-2">{product.title}</h5>
                 <p className="text-gray-600 text-sm mb-2 truncate ">{product.description}</p>
                 <p className="text-gray-900 mb-2">
-                  <strong>Giá:</strong> {product.price}
+                <span className="text-gray-800">{product.price?.toLocaleString()}</span>
+                <span className="text-gray-600 text-base"> VNĐ</span> 
                 </p>
                 <Link to={`/product-detail/${product._id}`}>
                   <button className="w-full px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">

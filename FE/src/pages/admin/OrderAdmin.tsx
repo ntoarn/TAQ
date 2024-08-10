@@ -129,7 +129,7 @@ const OrderAdmin: React.FC = () => {
                    Products
                 </button>
               </td>
-              <td className="py-2 px-4">{order.totalPrice}</td>
+              <td className="py-2 px-4">{order.totalPrice.toLocaleString()} VNĐ</td>
               <td className="py-2 px-4">{order.status}</td>
               <td className="py-2 px-4">
                 <button

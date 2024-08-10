@@ -123,7 +123,7 @@ const Header = () => {
               </li>
               <li>
                 <Link to="/blog" className="hover:text-gray-900">
-                  Blog
+                  Bài viết
                 </Link>
               </li>
               <li>
