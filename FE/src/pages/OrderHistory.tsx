@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import instance from '../apis';
 import { useAuth } from '../contexts/AuthContext';
 import { IOrder } from '../interfaces/Order';
+import { toast, ToastContainer } from 'react-toastify';
+import OrderDetailsModal from '../components/OrderDetailsModal';
 
-const OrderHistory = () => {
+const OrderHistory: React.FC = () => {
     const [orders, setOrders] = useState<IOrder[]>([]);
     const [error, setError] = useState<string | null>(null);
+    const [selectedOrder, setSelectedOrder] = useState<IOrder | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const { user } = useAuth();
     const userId = user?._id;
 
@@ -31,10 +35,10 @@ const OrderHistory = () => {
     const handleCancelOrder = async (orderId: string) => {
         try {
             const response = await instance.post('/order/cancel', { orderId });
-            alert(response.data.message);
+            toast.success(response.data.message); // Use toast to show success message
 
             // Cập nhật trạng thái đơn hàng trong giao diện người dùng
-            setOrders((prevOrders) => prevOrders.map((order) =>
+            setOrders(prevOrders => prevOrders.map(order =>
                 order._id === orderId ? { ...order, status: 'Hủy' } : order
             ));
         } catch (error: any) {
@@ -43,10 +47,21 @@ const OrderHistory = () => {
         }
     };
 
+    const handleOrderDetails = (orderId: string) => {
+        const order = orders.find(o => o._id === orderId) || null;
+        setSelectedOrder(order);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedOrder(null);
+    };
+
     return (
         <div className="p-6">
             <h2 className="text-2xl font-bold mb-4 text-center">Lịch Sử Mua Hàng</h2>
-            {error && <p className="text-red-500 text-center">{error}</p>}
+            {/* {error && <p className="text-red-500 text-center">{error}</p>} */}
             {orders.length === 0 ? (
                 <p className="text-gray-600 text-center">Không có đơn hàng nào.</p>
             ) : (
@@ -63,7 +78,7 @@ const OrderHistory = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {orders.map((order) => (
+                            {orders.map(order => (
                                 <tr key={order._id} className="hover:bg-gray-100">
                                     <td className="px-4 py-2 border-b text-center">{order.orderNumber}</td>
                                     <td className="px-4 py-2 border-b text-center">{new Date(order.createdAt).toLocaleDateString()}</td>
@@ -86,7 +101,6 @@ const OrderHistory = () => {
                                                 Hủy
                                             </button>
                                         )}
-
                                     </td>
                                 </tr>
                             ))}
@@ -94,12 +108,14 @@ const OrderHistory = () => {
                     </table>
                 </div>
             )}
+            <OrderDetailsModal
+                isOpen={isModalOpen}
+                order={selectedOrder}
+                onClose={handleCloseModal}
+            />
+            <ToastContainer />
         </div>
     );
-};
-
-const handleOrderDetails = (orderId: string) => {
-    // Handle logic to show order details
 };
 
 export default OrderHistory;

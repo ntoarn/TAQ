@@ -1,0 +1,425 @@
+[{
+  "_id": {
+    "$oid": "66aae4cbe5024e25753610d0"
+  },
+  "title": "KÍNH RÂM EYEPLUS 9078 C4",
+  "description": "Kính râm thời trang EYEPLUS 9078 là mẫu sản phẩm được thiết kế độc quyền bởi Eye Plus. EP 9078 được thiết kế bởi chất liệu nhựa kim loại cao cấp bền bỉ với thời gian, mang đến những trải nghiệm độc đáo như: giá trị sử dụng lâu dài, mặt kính bóng đẹp, khó bị gỉ, chống chịu tốt bởi tác động của môi trường, … Kính râm EP 9078 nổi bật với sự kết hợp khéo léo mắt khói cá tính, tất cả tạo nên một tổng thể hài hoà. Chắc chắn sẽ đem lại vẻ thời trang tối đa cho bạn.\n\nNgoài ra, các kích thước của kính được thiết kế tối ưu với gương mặt Việt. Phần cầu kính có chiều rộng đạt chuẩn, cân đối dáng kính, đồng thời giúp người sử dụng nhìn đúng trọng tâm.",
+  "price": 525000,
+  "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c4.jpg",
+  "quantity": 75,
+  "sizeId": {
+    "$oid": "668262b8cbae6f6fb76c2f88"
+  },
+  "colorId": {
+    "$oid": "669be246906f2755f352dc8b"
+  },
+  "categoryId": {
+    "$oid": "668266c7d4da294750600c95"
+  },
+  "createdAt": {
+    "$date": "2024-08-01T01:28:43.377Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:08:37.236Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66aae842e5024e2575361105"
+  },
+  "title": "KÍNH RÂM EYEPLUS 9078 C1 GỌNG ĐEN MẮT ĐEN",
+  "description": "Kính râm thời trang EYEPLUS 9078 là mẫu sản phẩm được thiết kế độc quyền bởi Eye Plus. EP 9078 được thiết kế bởi chất liệu nhựa kim loại cao cấp bền bỉ với thời gian, mang đến những trải nghiệm độc đáo như: giá trị sử dụng lâu dài, mặt kính bóng đẹp, khó bị gỉ, chống chịu tốt bởi tác động của môi trường, … Kính râm EP 9078 nổi bật với sự kết hợp khéo léo mắt đen cá tính, tất cả tạo nên một tổng thể hài hoà. Chắc chắn sẽ đem lại vẻ thời trang tối đa cho bạn.\n\nNgoài ra, các kích thước của kính được thiết kế tối ưu với gương mặt Việt. Phần cầu kính có chiều rộng đạt chuẩn, cân đối dáng kính, đồng thời giúp người sử dụng nhìn đúng trọng tâm.",
+  "price": 525000,
+  "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c1.jpg",
+  "quantity": 45,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "66aae5cb1bc980143c984041"
+  },
+  "categoryId": {
+    "$oid": "668266c7d4da294750600c95"
+  },
+  "createdAt": {
+    "$date": "2024-08-01T01:43:30.446Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-01T01:43:46.641Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66aaec28e5024e2575361142"
+  },
+  "title": "Kính Râm EYEPLUS 9810 C2 GỌNG ĐỒI MỒI MẮT ĐEN",
+  "description": "Kính râm thời trang EP 9810 là mẫu sản phẩm được thiết kế độc quyền bởi Eye Plus. 9810 được thiết kế bởi chất liệu nhựa cao cấp bền bỉ với thời gian, mang đến những trải nghiệm độc đáo như: giá trị sử dụng lâu dài, mặt kính bóng đẹp, khó bị gỉ, chống chịu tốt bởi tác động của môi trường, … Eye Plus 9810 nổi bật với sự kết hợp khéo léo gam màu đồi mồi mắt đen cá tính cho cả phần gọng và mắt kính cá tính, tất cả tạo nên một tổng thể hài hoà. Chắc chắn sẽ đem lại vẻ thời trang tối đa cho bạn.\n\nNgoài ra, các kích thước của kính được thiết kế tối ưu với gương mặt Việt. Phần cầu kính có chiều rộng đạt chuẩn, cân đối dáng kính, đồng thời giúp người sử dụng nhìn đúng trọng tâm.",
+  "price": 245000,
+  "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9810-c2.png",
+  "quantity": 109,
+  "sizeId": {
+    "$oid": "668262b0cbae6f6fb76c2f86"
+  },
+  "colorId": {
+    "$oid": "66aae5cb1bc980143c984041"
+  },
+  "categoryId": {
+    "$oid": "668266c7d4da294750600c95"
+  },
+  "createdAt": {
+    "$date": "2024-08-01T02:00:08.500Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-01T02:00:08.500Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66aaec98e5024e257536115f"
+  },
+  "title": "Kính Râm Thời Trang REEMAN 9080 C4 Gọng Đen Mắt Đỏ",
+  "description": "Kính râm thời trang RM 9080 là mẫu sản phẩm được thiết kế độc quyền bởi Ree-man. RM9080 được thiết kế bởi chất liệu nhựa cao cấp bền bỉ với thời gian, mang đến những trải nghiệm độc đáo như: giá trị sử dụng lâu dài, mặt kính bóng đẹp, khó bị gỉ, chống chịu tốt bởi tác động của môi trường, … Reeman 9080 nổi bật với sự kết hợp khéo léo gam màu mắt đỏ cá tính cho cả phần gọng và mắt kính cá tính, tất cả tạo nên một tổng thể hài hoà. Chắc chắn sẽ đem lại vẻ thời trang tối đa cho bạn.\n\nNgoài ra, các kích thước của kính được thiết kế tối ưu với gương mặt Việt. Phần cầu kính có chiều rộng đạt chuẩn, cân đối dáng kính, đồng thời giúp người sử dụng nhìn đúng trọng tâm.",
+  "price": 315000,
+  "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/05/IMG_0867.jpg",
+  "quantity": 35,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "66aae5cb1bc980143c984041"
+  },
+  "categoryId": {
+    "$oid": "66aae7ac1bc980143c98404f"
+  },
+  "createdAt": {
+    "$date": "2024-08-01T02:02:00.940Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-01T02:02:00.940Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66aaed1ee5024e257536117c"
+  },
+  "title": "Gọng Kính Cận Reeman 39814 C248 VÀNG",
+  "description": "Gọng kính cận nam Reeman RM39814 là dòng sản phẩm gọng kính với thiết kế độc đáo, mới lạ và chuẩn xác đến từng chi tiết. Gọng kính được trực tiếp thiết kế bởi đội ngũ Eye Plus, hướng đến sự tốt giản và sự thoải mái khi đeo. Chất liệu nhựa cao cấp đem lại nhiều điểm ưu việt nổi trội như: độ bền cao, chống các yếu tố tác động từ môi trường, tính thẩm mỹ,… Ngoài ra, việc sử dụng gam màu nâu cũng giúp sản phẩm trở thành điểm nhấn nổi bật trên khuôn mặt.\n\nCầu kính là khoảng cách giữa 2 mắt kính. Một khoảng cách phù hợp sẽ giúp mắt nhìn đúng trọng tâm, hạn chế các tật về mặt do sử dụng nhiều.",
+  "price": 350000,
+  "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/03/IMG_7475-700x700.jpg",
+  "quantity": 44,
+  "sizeId": {
+    "$oid": "668262b8cbae6f6fb76c2f88"
+  },
+  "colorId": {
+    "$oid": "66aaecc41bc980143c984057"
+  },
+  "categoryId": {
+    "$oid": "66aae7ac1bc980143c98404f"
+  },
+  "createdAt": {
+    "$date": "2024-08-01T02:04:14.169Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-01T02:04:14.169Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66aaef3ce5024e25753611b1"
+  },
+  "title": "KÍNH ĐỔI MÀU TRENDY ROCKY LENS 1.56 ASP – MÀU TÍM",
+  "description": "Tròng kính Đổi màu Rocky Lens 1.56 cơ bản là một tròng kính có màu trong suốt khi ở điều kiện ánh sáng trong phòng, và đổi màu thành màu tím nhạt khi tiếp xúc trực tiếp với ánh sáng mặt trời.\n\n– Sản phẩm được phân phối chính hãng tại Việt Nam\n– Eye Plus tự hào là nhà phân phối uỷ quyền chính thức có giấy xác nhận từ đại diện đảm bảo chính hãng\n– Hỗ trợ thêm quyền lợi bảo hành 6 tháng liên quan đến bong tróc cho khách hàng",
+  "price": 600000,
+  "image": "https://kinhmateyeplus.com/wp-content/uploads/2023/03/rocky-tim-700x700.png",
+  "quantity": 90,
+  "sizeId": {
+    "$oid": "66aaeeef1bc980143c984060"
+  },
+  "colorId": {
+    "$oid": "66aaee991bc980143c98405d"
+  },
+  "categoryId": {
+    "$oid": "66aaee2f1bc980143c98405a"
+  },
+  "createdAt": {
+    "$date": "2024-08-01T02:13:16.144Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-01T02:13:16.144Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8f4b9e1a8111acdf1b18c"
+  },
+  "title": "GỌNG KÍNH CẬN REEMAN RM HD7636 C1 ĐEN BÓNG",
+  "description": "Gọng kính cận nam Reeman RM7636 là dòng sản phẩm gọng kính với thiết kế độc đáo, mới lạ và chuẩn xác đến từng chi tiết. Gọng kính được trực tiếp thiết kế bởi đội ngũ Eye Plus, hướng đến sự tốt giản và sự thoải mái khi đeo. Chất liệu nhựa cao cấp đem lại nhiều điểm ưu việt nổi trội như: độ bền cao, chống các yếu tố tác động từ môi trường, tính thẩm mỹ,… Ngoài ra, việc sử dụng gam màu đen bóng cũng giúp sản phẩm trở thành điểm nhấn nổi bật trên khuôn mặt.\n\nCầu kính là khoảng cách giữa 2 mắt kính. Một khoảng cách phù hợp sẽ giúp mắt nhìn đúng trọng tâm, hạn chế các tật về mặt do sử dụng nhiều.",
+  "price": 350000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723397302/qjr9g4zy5u93z0wk8bln.jpg",
+  "quantity": 26,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "66aae5cb1bc980143c984041"
+  },
+  "categoryId": {
+    "$oid": "6681c25838fe3df384cc8da6"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:28:25.843Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:35:40.834Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8f50ae1a8111acdf1b1ac"
+  },
+  "title": "GỌNG KÍNH TR 2013 C5 XANH TRONG",
+  "description": "Bạn đang tìm kiếm một chiếc gọng kính size nhỏ cho em bé nhà mình ư?",
+  "price": 245000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723397382/viwvlrbtjwgzhici0zl5.jpg",
+  "quantity": 65,
+  "sizeId": {
+    "$oid": "668262b8cbae6f6fb76c2f88"
+  },
+  "colorId": {
+    "$oid": "66aaee991bc980143c98405d"
+  },
+  "categoryId": {
+    "$oid": "6681c25838fe3df384cc8da6"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:29:46.011Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:35:49.564Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8f55be1a8111acdf1b1be"
+  },
+  "title": "GỌNG KÍNH CẬN BLANCY 7318 C4 XÁM",
+  "description": "Chất liệu kim loại cao cấp cao cấp nay có thêm kiểu dáng Club Master xám cho các anh em thoải mái với mọi lựa chọn.\nGọng kính blancy 7318 dáng cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng.",
+  "price": 385000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723397464/svslsrjuosmmkm5mhbc3.jpg",
+  "quantity": 45,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "66aae65e1bc980143c984046"
+  },
+  "categoryId": {
+    "$oid": "6681c25838fe3df384cc8da6"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:31:07.080Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:35:54.130Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8f5b0e1a8111acdf1b1d0"
+  },
+  "title": "GỌNG KÍNH CẬN BLANCY 588 C2 ĐEN NHÁM",
+  "description": "Bạn đang tìm kiếm một chiếc gọng kính vừa chững chạc, lịch lãm vừa phong cách ư?\n\nBạn tìm đúng chỗ rồi đó!\n\nGọng kính BLANCY 588 với thiết kế mắt vuông bo tròn lịch lãm cho nam\nGam màu đen nhám truyền thống cho bạn tự tin khoe những đường nét sắc sảo của khuôn mặt\nChất liệu nhựa cao cấp, mang đến trải nghiệm thoải mái từng khoảnh khắc",
+  "price": 385000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723397549/pk8jq2npbkqmec3wxr2m.jpg",
+  "quantity": 33,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "66aae5cb1bc980143c984041"
+  },
+  "categoryId": {
+    "$oid": "6681c25838fe3df384cc8da6"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:32:32.376Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:36:10.449Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8f65fe1a8111acdf1b22a"
+  },
+  "title": "TRÒNG KÍNH ĐỔI MÀU ELEMENT 1.67",
+  "description": "Tròng kính đổi màu Element 1.67 cơ bản là một tròng kính có màu trong suốt khi ở điều kiện ánh sáng trong phòng, và đổi màu thành màu xám khói khi tiếp xúc trực tiếp với ánh sáng mặt trời. Tròng có tích hợp các tính năng hữu ích như: Phản quang chống tia UV 400, hạn chế chói lóa, hạn chế bám nước hơi sương. Bên cạnh đó, tròng Đổi màu Hoya còn giúp chống tia xanh gây nhức mỏi và hại mắt do màn hình vi tính và các thiết bị điện tử gây ra.\n\n– Sản phẩm được phân phối chính hãng tại Việt Nam\n– Eye Plus tự hào là nhà phân phối uỷ quyền chính thức có giấy xác nhận từ đại diện đảm bảo chính hãng\n– Hỗ trợ thêm quyền lợi bảo hành 1 năm liên quan đến bong tróc cho khách hàng",
+  "price": 2480000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723397708/wfapn17dwbxzmm42ohsk.jpg",
+  "quantity": 23,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "66aaee991bc980143c98405d"
+  },
+  "categoryId": {
+    "$oid": "66aaee2f1bc980143c98405a"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:35:27.698Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:35:27.698Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8f911e1a8111acdf1b2d9"
+  },
+  "title": "TRÒNG KÍNH ĐỔI MÀU CHEMI 1.56 HÀN QUỐC",
+  "description": "Tròng kính Đổi màu Chemi 1.56 cơ bản là một tròng kính có màu trong suốt khi ở điều kiện ánh sáng trong phòng, và đổi màu thành màu xám khói khi tiếp xúc trực tiếp với ánh sáng mặt trời.\n\n– Sản phẩm được phân phối chính hãng tại Việt Nam\n– Eye Plus tự hào là nhà phân phối uỷ quyền chính thức có giấy xác nhận từ đại diện đảm bảo chính hãng\n– Hỗ trợ thêm quyền lợi bảo hành 6 tháng liên quan đến bong tróc cho khách hàng",
+  "price": 700000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723398415/es6wsmqpma5s6mvx4q7y.jpg",
+  "quantity": 12,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "66aae5cb1bc980143c984041"
+  },
+  "categoryId": {
+    "$oid": "66aaee2f1bc980143c98405a"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:46:57.980Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:47:25.877Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8f978e1a8111acdf1b357"
+  },
+  "title": "KÍNH RÂM EYE PLUS 8560 GỌNG GHI MẮT KHÓI",
+  "description": "Kính râm thời trang Eye Plus 8560 mang đến trải nghiệm mới mẻ, độc đáo. Phiên bản này được thiết kế form dáng Pilot kết hợp với gam màu mắt khói thời thượng, tinh tế. Gọng sử dụng chất liệu kim loại cao cấp, mang đến các đặc tính ưu việt cho sản phẩm như: độ cứng cơ học cao, chịu nhiệt tốt, không bị tác động trước các điều kiện môi trường, bề mặt đen nhám trơn, …\n\nNgoài ra, kích thước mắt kính bản to càng tô lên vẻ thời trang cho người sử dụng. Tròng râm được trang bị đầy đủ tính năng của một chiếc kính râm chất lượng, chống chói lóa, chống tia UV, tạo cảm giác thoải mái cho mắt khi tiếp xúc với ánh nắng mặt trời.",
+  "price": 280000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723398517/zcsbhpfgu7wr3arjzpxh.jpg",
+  "quantity": 34,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "66aae5cb1bc980143c984041"
+  },
+  "categoryId": {
+    "$oid": "668266c7d4da294750600c95"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:48:40.324Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:48:40.324Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8f9c9e1a8111acdf1b377"
+  },
+  "title": "GỌNG KÍNH CẬN EYEPLUS 2505 C2 ĐEN NHÁM",
+  "description": "Chất liệu nhựa nguyên khối cao cấp nay có thêm kiểu dáng chữ nhật cho các anh chị em thoải mái với mọi lựa chọn.\nGọng kính Eye Plus 2505 dáng chữ nhật màu đen nhám cá tính có điểm nhấn nổi bật nằm ở thiết kế hai bên càng kính. Form dáng cá tính, và độc đáo, thích hợp làm mới vẻ ngoài của người sử dụng",
+  "price": 154000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723398599/omo6mynnef0mccmgx1mf.jpg",
+  "quantity": 12,
+  "sizeId": {
+    "$oid": "668262b8cbae6f6fb76c2f88"
+  },
+  "colorId": {
+    "$oid": "66aae5cb1bc980143c984041"
+  },
+  "categoryId": {
+    "$oid": "66aae7ac1bc980143c98404f"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:50:01.560Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:50:01.560Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8fa04e1a8111acdf1b389"
+  },
+  "title": "GỌNG KÍNH CẬN REEMAN 39819 C248 NÂU",
+  "description": "Gọng kính cận nam Reeman RM39819 là dòng sản phẩm gọng kính với thiết kế độc đáo, mới lạ và chuẩn xác đến từng chi tiết. Gọng kính được trực tiếp thiết kế bởi đội ngũ Eye Plus, hướng đến sự tốt giản và sự thoải mái khi đeo. Chất liệu nhựa cao cấp đem lại nhiều điểm ưu việt nổi trội như: độ bền cao, chống các yếu tố tác động từ môi trường, tính thẩm mỹ,… Ngoài ra, việc sử dụng gam màu nâu cũng giúp sản phẩm trở thành điểm nhấn nổi bật trên khuôn mặt.\n\nCầu kính là khoảng cách giữa 2 mắt kính. Một khoảng cách phù hợp sẽ giúp mắt nhìn đúng trọng tâm, hạn chế các tật về mặt do sử dụng nhiều.",
+  "price": 350000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723398658/edrox5fhhclddtepbrjg.jpg",
+  "quantity": 12,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "669be246906f2755f352dc8b"
+  },
+  "categoryId": {
+    "$oid": "66aae7ac1bc980143c98404f"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:51:00.505Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:51:00.505Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8fac6e1a8111acdf1b3c8"
+  },
+  "title": "KV048 - Kính Chống Ánh Sáng Xanh Bảo Vệ Mắt Dáng Tròn Gọng Nhựa Dẻo",
+  "description": "Kính sử dụng cho người thường xuyên tiếp xúc với màn hình máy tính, điện thoại\n• Gọng kính chất liệu nhựa dẻo TR90, nhẹ, bền, dễ uốn nắn vừa khuôn mặt\n• Mắt kính ngăn chặn hoàn toàn ánh sáng xanh có hại từ màn hình máy tính, điện thoại, cho ánh sáng xanh có lợi đi qua\n• Mắt kính Hàn Quốc cao cấp trong suốt, không bị ngả vàng, đảm bảo màu sắc chân thực\n\n• Mắt kính cao cấp bằng hợp chất của thuỷ tinh, chất liệu High index giúp mắt kính trong hơn, được khuyên dùng trong y tế, không giống như các loại kính mắt nhựa giá rẻ có thể gây hại cho mắt.\n• Mắt kính chống xước, chống tia UV400, chống phản quang không bị in bóng trên mắt kính\n• Đeo kính giúp Giảm nhức mỏi mắt khi dùng máy tính, điện thoại. Hạn chế tăng độ cận và nguy cơ mắc các bệnh về mắt.\n• Bộ sản phẩm bao gồm: Kính, Khăn lụa siêu dày , Hộp đựng kính cao cấp, thẻ bảo hành chính hãng Kavi 1 năm",
+  "price": 299000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723398851/tcnrfefwocuveqvpsqkm.jpg",
+  "quantity": 11,
+  "sizeId": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "colorId": {
+    "$oid": "66aae5cb1bc980143c984041"
+  },
+  "categoryId": {
+    "$oid": "6681bc55e9233fa5079d08ff"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:54:14.090Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:54:14.090Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8fb1ce1a8111acdf1b3e8"
+  },
+  "title": "KÍNH ĐỔI MÀU TRENDY ROCKY LENS 1.56 ASP – MÀU VÀNG",
+  "description": "Tròng kính Đổi màu Rocky Lens 1.56 cơ bản là một tròng kính có màu trong suốt khi ở điều kiện ánh sáng trong phòng, và đổi màu thành màu vàng nhạt khi tiếp xúc trực tiếp với ánh sáng mặt trời.\n\n– Sản phẩm được phân phối chính hãng tại Việt Nam\n– Eye Plus tự hào là nhà phân phối uỷ quyền chính thức có giấy xác nhận từ đại diện đảm bảo chính hãng\n– Hỗ trợ thêm quyền lợi bảo hành 6 tháng liên quan đến bong tróc cho khách hàng",
+  "price": 650000,
+  "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723398937/xtlqlqydv5teso3ftvfh.png",
+  "quantity": 11,
+  "sizeId": {
+    "$oid": "668262b8cbae6f6fb76c2f88"
+  },
+  "colorId": {
+    "$oid": "66aaecc41bc980143c984057"
+  },
+  "categoryId": {
+    "$oid": "6681c25838fe3df384cc8da6"
+  },
+  "createdAt": {
+    "$date": "2024-08-11T17:55:40.589Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:59:43.670Z"
+  }
+}]

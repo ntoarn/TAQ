@@ -1,0 +1,166 @@
+[{
+  "_id": {
+    "$oid": "668262b0cbae6f6fb76c2f86"
+  },
+  "size": "To",
+  "createdAt": {
+    "$date": "2024-07-01T08:02:56.367Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:15:25.955Z"
+  },
+  "products": [
+    {
+      "$oid": "669be559cef3c7d85054f715"
+    },
+    {
+      "$oid": "669be55ccef3c7d85054f71a"
+    },
+    {
+      "$oid": "669be5995c874cc63d946b2d"
+    },
+    {
+      "$oid": "669be5ca5c874cc63d946b34"
+    },
+    {
+      "$oid": "66aaec28e5024e2575361142"
+    },
+    {
+      "$oid": "66b8f1ade1a8111acdf1b05f"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668262b8cbae6f6fb76c2f88"
+  },
+  "size": "Nhỏ",
+  "createdAt": {
+    "$date": "2024-07-01T08:03:04.008Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:55:40.591Z"
+  },
+  "products": [
+    {
+      "$oid": "66a006c34d22304a09cba23a"
+    },
+    {
+      "$oid": "66aaed1ee5024e257536117c"
+    },
+    {
+      "$oid": "66b627da20e893fc3f808de3"
+    },
+    {
+      "$oid": "66b627fc20e893fc3f808e19"
+    },
+    {
+      "$oid": "66b6288320e893fc3f808e39"
+    },
+    {
+      "$oid": "66b628be20e893fc3f808e82"
+    },
+    {
+      "$oid": "66b6295720e893fc3f808ed8"
+    },
+    {
+      "$oid": "66b8f329e1a8111acdf1b0dd"
+    },
+    {
+      "$oid": "66b8f50ae1a8111acdf1b1ac"
+    },
+    {
+      "$oid": "66b8f9c9e1a8111acdf1b377"
+    },
+    {
+      "$oid": "66b8fb1ce1a8111acdf1b3e8"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668262c0cbae6f6fb76c2f8a"
+  },
+  "size": "Trung bình",
+  "createdAt": {
+    "$date": "2024-07-01T08:03:12.383Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:54:14.095Z"
+  },
+  "products": [
+    {
+      "$oid": "66a008834d22304a09cba389"
+    },
+    {
+      "$oid": "66aae4cbe5024e25753610d0"
+    },
+    {
+      "$oid": "66aae842e5024e2575361105"
+    },
+    {
+      "$oid": "66aaec98e5024e257536115f"
+    },
+    {
+      "$oid": "66b8eefae1a8111acdf1af82"
+    },
+    {
+      "$oid": "66b8f4b9e1a8111acdf1b18c"
+    },
+    {
+      "$oid": "66b8f55be1a8111acdf1b1be"
+    },
+    {
+      "$oid": "66b8f5b0e1a8111acdf1b1d0"
+    },
+    {
+      "$oid": "66b8f65fe1a8111acdf1b22a"
+    },
+    {
+      "$oid": "66b8f911e1a8111acdf1b2d9"
+    },
+    {
+      "$oid": "66b8f978e1a8111acdf1b357"
+    },
+    {
+      "$oid": "66b8fa04e1a8111acdf1b389"
+    },
+    {
+      "$oid": "66b8fac6e1a8111acdf1b3c8"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668e44420779d7ca48b17582"
+  },
+  "size": "Bé",
+  "products": [
+    {
+      "$oid": "66b8f08de1a8111acdf1afd5"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-07-10T08:20:18.745Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:10:37.327Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66aaeeef1bc980143c984060"
+  },
+  "size": "Không có",
+  "products": [
+    {
+      "$oid": "66aaef091bc980143c984061"
+    },
+    {
+      "$oid": "66aaef3ce5024e25753611b1"
+    }
+  ],
+  "updatedAt": {
+    "$date": "2024-08-01T02:13:16.147Z"
+  }
+}]

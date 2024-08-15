@@ -86,7 +86,7 @@ const OrderAdmin: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Order Management</h1>
+      <h1 className="text-2xl font-bold mb-4">Quản lý đơn hàng</h1>
       
       {/* Search Input */}
       <div className="mb-4">
@@ -104,13 +104,13 @@ const OrderAdmin: React.FC = () => {
           <tr>
             <th className="py-2 px-4 border-b">ID</th>
             <th className="py-2 px-4 border-b">Email</th>
-            <th className="py-2 px-4 border-b">Name</th>
-            <th className="py-2 px-4 border-b">Phone</th>
-            <th className="py-2 px-4 border-b">Address</th>
-            <th className="py-2 px-4 border-b">Products</th>
-            <th className="py-2 px-4 border-b">Total Price</th>
-            <th className="py-2 px-4 border-b">Status</th>
-            <th className="py-2 px-4 border-b">Actions</th>
+            <th className="py-2 px-4 border-b">Họ Tên</th>
+            <th className="py-2 px-4 border-b">Số điện thoại</th>
+            <th className="py-2 px-4 border-b">Địa chỉ</th>
+            <th className="py-2 px-4 border-b">Chi tiết sản phẩm</th>
+            <th className="py-2 px-4 border-b">Tổng tiền</th>
+            <th className="py-2 px-4 border-b">Trạng thái</th>
+            <th className="py-2 px-4 border-b">Hoạt động</th>
           </tr>
         </thead>
         <tbody>
@@ -126,7 +126,7 @@ const OrderAdmin: React.FC = () => {
                   className="bg-blue-500 text-white py-1 px-3 rounded"
                   onClick={() => handleViewProducts(order)}
                 >
-                   Products
+                   Chi tiết
                 </button>
               </td>
               <td className="py-2 px-4">{order.totalPrice.toLocaleString()} VNĐ</td>
@@ -136,7 +136,7 @@ const OrderAdmin: React.FC = () => {
                   className="bg-blue-500 text-white py-1 px-3 rounded mr-2"
                   onClick={() => handleOpenStatusUpdateModal(order)}
                 >
-                  Update 
+                  Cập nhập 
                 </button>
               </td>
             </tr>

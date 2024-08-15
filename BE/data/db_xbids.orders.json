@@ -1,0 +1,673 @@
+[{
+  "_id": {
+    "$oid": "66b61198e25bd23f295f5c3b"
+  },
+  "userId": [
+    {
+      "$oid": "66b25adc7baad460a83faf95"
+    }
+  ],
+  "items": [
+    {
+      "title": "KÍNH RÂM EYEPLUS 9078 C1 GỌNG ĐEN MẮT ĐEN",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c1.jpg",
+      "price": 525000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b61198e25bd23f295f5c3c"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723208088804",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 555000,
+  "status": "Hủy",
+  "createdAt": {
+    "$date": "2024-08-09T12:54:48.808Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-09T12:59:54.254Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6122059c8624b8a73aec7"
+  },
+  "userId": [
+    {
+      "$oid": "66b25adc7baad460a83faf95"
+    }
+  ],
+  "items": [
+    {
+      "title": "KÍNH RÂM EYEPLUS 9078 C1 GỌNG ĐEN MẮT ĐEN",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c1.jpg",
+      "price": 525000,
+      "quantity": 3,
+      "_id": {
+        "$oid": "66b6122059c8624b8a73aec8"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723208224647",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 1605000,
+  "status": "Hủy",
+  "createdAt": {
+    "$date": "2024-08-09T12:57:04.650Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-10T19:57:58.849Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b61b6e98ce6c8a64b3de8b"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "KÍNH RÂM EYEPLUS 9078 C4",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c4.jpg",
+      "price": 525000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b61b6e98ce6c8a64b3de8c"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723210606593",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 555000,
+  "status": "Đã xác nhận",
+  "createdAt": {
+    "$date": "2024-08-09T13:36:46.617Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-10T19:43:32.970Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b61e7ba4e3aee67c39557d"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "KÍNH RÂM EYEPLUS 9078 C1 GỌNG ĐEN MẮT ĐEN",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c1.jpg",
+      "price": 525000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b61e7ba4e3aee67c39557e"
+      }
+    },
+    {
+      "title": "Kính Râm EYEPLUS 9810 C2 GỌNG ĐỒI MỒI MẮT ĐEN",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9810-c2.png",
+      "price": 245000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b61e7ba4e3aee67c39557f"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723211387367",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 800000,
+  "status": "Đã xác nhận",
+  "createdAt": {
+    "$date": "2024-08-09T13:49:47.375Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-10T19:46:10.978Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b63dc926cb8a27d957c282"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "Kính Râm EYEPLUS 9810 C2 GỌNG ĐỒI MỒI MẮT ĐEN",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9810-c2.png",
+      "price": 245000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b63dc926cb8a27d957c283"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723219401551",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 270000,
+  "status": "Chờ xác nhận",
+  "createdAt": {
+    "$date": "2024-08-09T16:03:21.557Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-09T16:03:21.557Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b642b038b7072c053b1bcd"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "2222",
+      "image": "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-color-lineup-geo-230912_big.jpg.large.jpg",
+      "price": 2222,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b642b038b7072c053b1bce"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723220656324",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 27222,
+  "status": "Đang giao",
+  "createdAt": {
+    "$date": "2024-08-09T16:24:16.328Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-10T19:43:01.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6445c04a18f8101768838"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "111",
+      "image": "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-color-lineup-geo-230912_big.jpg.large.jpg",
+      "price": 1111,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b6445c04a18f8101768839"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723221084968",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 26111,
+  "status": "Đang giao",
+  "createdAt": {
+    "$date": "2024-08-09T16:31:24.977Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-10T19:42:49.818Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b64d456950c9519572757d"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "111",
+      "image": "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-color-lineup-geo-230912_big.jpg.large.jpg",
+      "price": 1111,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b64d456950c9519572757e"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723223365127",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 26111,
+  "status": "Đã giao hàng",
+  "createdAt": {
+    "$date": "2024-08-09T17:09:25.135Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-09T18:24:28.313Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b6558806e65c1706ace6b4"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "2222",
+      "image": "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-color-lineup-geo-230912_big.jpg.large.jpg",
+      "price": 2222,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b6558806e65c1706ace6b5"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723225480873",
+  "customerInfo": {
+    "name": "Ngô ",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "MOMO",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 27222,
+  "status": "Hủy",
+  "createdAt": {
+    "$date": "2024-08-09T17:44:40.886Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-09T17:47:14.402Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b76a431f7181eb643ea1f6"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "KÍNH RÂM EYEPLUS 9078 C4",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c4.jpg",
+      "price": 525000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b76a431f7181eb643ea1f7"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723296323874",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "MOMO",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 550000,
+  "status": "Hủy",
+  "createdAt": {
+    "$date": "2024-08-10T13:25:23.888Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-10T13:26:22.502Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b7b8a1cbe6ebff253fcdf3"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "KÍNH RÂM EYEPLUS 9078 C1 GỌNG ĐEN MẮT ĐEN",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c1.jpg",
+      "price": 525000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b7b8a1cbe6ebff253fcdf4"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723316385956",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "MOMO",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 550000,
+  "status": "Đã giao hàng",
+  "createdAt": {
+    "$date": "2024-08-10T18:59:45.971Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-10T19:06:20.232Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b7ba79cbe6ebff253fcf9f"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "2222",
+      "image": "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-color-lineup-geo-230912_big.jpg.large.jpg",
+      "price": 2222,
+      "quantity": 2,
+      "_id": {
+        "$oid": "66b7ba79cbe6ebff253fcfa0"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723316857347",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 29444,
+  "status": "Hủy",
+  "createdAt": {
+    "$date": "2024-08-10T19:07:37.355Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-10T19:42:16.538Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8fdb8e1a8111acdf1b62a"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "Kính Râm EYEPLUS 9810 C2 GỌNG ĐỒI MỒI MẮT ĐEN",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9810-c2.png",
+      "price": 245000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b8fdb8e1a8111acdf1b62b"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723399608891",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 270000,
+  "status": "Chờ xác nhận",
+  "createdAt": {
+    "$date": "2024-08-11T18:06:48.896Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T18:06:48.896Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b8fee6e1a8111acdf1b6bd"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "GỌNG KÍNH TR 2013 C5 XANH TRONG",
+      "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723397382/viwvlrbtjwgzhici0zl5.jpg",
+      "price": 245000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b8fee6e1a8111acdf1b6be"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723399910797",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "MOMO",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 270000,
+  "status": "Chờ xác nhận",
+  "createdAt": {
+    "$date": "2024-08-11T18:11:50.798Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T18:11:50.798Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b9aaaeb76c076ed05bd237"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "KÍNH RÂM EYE PLUS 8560 GỌNG GHI MẮT KHÓI",
+      "image": "https://res.cloudinary.com/dzkhn7e7k/image/upload/v1723398517/zcsbhpfgu7wr3arjzpxh.jpg",
+      "price": 280000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b9aaaeb76c076ed05bd238"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723443886469",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "MOMO",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 305000,
+  "status": "Chờ xác nhận",
+  "createdAt": {
+    "$date": "2024-08-12T06:24:46.487Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-12T06:24:46.487Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b9b81220ca90417d755af1"
+  },
+  "userId": [
+    {
+      "$oid": "66819e7bd03cfa8d8319e438"
+    }
+  ],
+  "items": [
+    {
+      "title": "KÍNH RÂM EYEPLUS 9078 C4",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c4.jpg",
+      "price": 525000,
+      "quantity": 1,
+      "_id": {
+        "$oid": "66b9b81220ca90417d755af2"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723447314813",
+  "customerInfo": {
+    "name": "quan",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "MOMO",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 550000,
+  "status": "Đã giao hàng",
+  "createdAt": {
+    "$date": "2024-08-12T07:21:54.818Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-12T07:23:45.572Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b9b9fc20ca90417d755c54"
+  },
+  "userId": [
+    {
+      "$oid": "66b2219be4ca6e0d10024120"
+    }
+  ],
+  "items": [
+    {
+      "title": "KÍNH RÂM EYEPLUS 9078 C4",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9078-c4.jpg",
+      "price": 525000,
+      "quantity": 3,
+      "_id": {
+        "$oid": "66b9b9fc20ca90417d755c55"
+      }
+    },
+    {
+      "title": "Kính Râm EYEPLUS 9810 C2 GỌNG ĐỒI MỒI MẮT ĐEN",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/07/9810-c2.png",
+      "price": 245000,
+      "quantity": 4,
+      "_id": {
+        "$oid": "66b9b9fc20ca90417d755c56"
+      }
+    },
+    {
+      "title": "Kính Râm Thời Trang REEMAN 9080 C4 Gọng Đen Mắt Đỏ",
+      "image": "https://kinhmateyeplus.com/wp-content/uploads/2024/05/IMG_0867.jpg",
+      "price": 315000,
+      "quantity": 3,
+      "_id": {
+        "$oid": "66b9b9fc20ca90417d755c57"
+      }
+    }
+  ],
+  "orderNumber": "ORD-1723447804877",
+  "customerInfo": {
+    "name": "Ngô Toản",
+    "email": "nqton301004@gmail.com",
+    "address": "số 11 xóm đồng cả làng bùng",
+    "phone": "0983827425",
+    "payment": "COD",
+    "city": "Huyện Thạch Thất"
+  },
+  "totalPrice": 3525000,
+  "status": "Chờ xác nhận",
+  "createdAt": {
+    "$date": "2024-08-12T07:30:04.880Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-12T07:32:01.319Z"
+  }
+}]

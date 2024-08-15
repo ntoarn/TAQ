@@ -9,7 +9,7 @@ const ListCategory = () => {
     <>
       <Link to="/admin/categories-add">
         <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-          Add New Category
+          Thêm danh mục mới
         </button>
       </Link>
       <div className="container mx-auto mt-4">
@@ -18,9 +18,9 @@ const ListCategory = () => {
             <thead className="bg-gray-800 text-white">
               <tr>
                 <th className="py-2 px-4 border-b">#</th>
-                <th className="py-2 px-4 border-b">Name</th>
+                <th className="py-2 px-4 border-b">Tên</th>
                 <th className="py-2 px-4 border-b">Slug</th>
-                <th className="py-2 px-4 border-b">Action</th>
+                <th className="py-2 px-4 border-b">Hoạt động</th>
               </tr>
             </thead>
             <tbody>
