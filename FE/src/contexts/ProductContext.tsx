@@ -1,19 +1,20 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useCallback, useEffect, useReducer, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { Product } from "../interfaces/Product";
 import productReducer from "../reducers/productReducer";
 import instance from "../apis";
+import { toast } from 'react-toastify';  // Import toast
 
 type ProductContextType = {
     state: { products: Product[] },
     handleRemove: (id: string) => void,
     handleSubmitProduct: (product: Product) => void,
-}
+};
 
 export const ProductContext = createContext({} as ProductContextType);
 
-export const ProductProvider = ({ children }: { children: React.ReactNode }) => {
-    const nav = useNavigate();
+export const ProductProvider = ({ children }: { children: ReactNode }) => {
+    const navigate = useNavigate();
     const [state, dispatch] = useReducer(productReducer, { products: [] });
 
     useEffect(() => {
@@ -29,34 +30,36 @@ export const ProductProvider = ({ children }: { children: React.ReactNode }) => 
         fetchProducts();
     }, []);
 
-    const handleRemove = async (id: string) => {
+    const handleRemove = useCallback(async (id: string) => {
         if (window.confirm("Bạn chắc chưa???")) {
             try {
                 await instance.delete(`/products/${id}`);
                 dispatch({ type: 'DELETE_PRODUCT', payload: id });
+                toast.success("Xóa sản phẩm thành công!");  // Show success toast
             } catch (error) {
                 console.error("Failed to delete product:", error);
             }
         }
-    };
+    }, []);
 
-    const handleSubmitProduct = async (product: Product) => {
+    const handleSubmitProduct = useCallback(async (product: Product) => {
         try {
-            
+            let updatedProducts;
             if (product._id) {
                 // Cập nhật sản phẩm
                 await instance.patch(`/products/${product._id}`, product);
-                // Tải lại danh sách sản phẩm sau khi cập nhật
-                const { data } = await instance.get(`/products`);
-                dispatch({ type: 'SET_PRODUCTS', payload: data.data });
+                updatedProducts = state.products.map((p) =>
+                    p._id === product._id ? { ...p, ...product } : p
+                );
+                toast.success("Sửa sản phẩm thành công!");  // Show success toast
             } else {
                 // Thêm sản phẩm mới
-                await instance.post("/products/", product);
-                // Tải lại danh sách sản phẩm sau khi thêm mới
-                const { data } = await instance.get(`/products`);
-                dispatch({ type: 'SET_PRODUCTS', payload: data.data });
+                const { data } = await instance.post("/products/", product);
+                updatedProducts = [...state.products, data];
+                toast.success("Thêm sản phẩm thành công!");  // Show success toast
             }
-            nav("/admin/product");
+            dispatch({ type: 'SET_PRODUCTS', payload: updatedProducts });
+            navigate("/admin/product");
         } catch (error: any) {
             if (error.response) {
                 console.error("Server responded with a status:", error.response.status);
@@ -68,11 +71,11 @@ export const ProductProvider = ({ children }: { children: React.ReactNode }) => 
             }
             console.error("Config:", error.config);
         }
-    };
+    }, [state.products, navigate]);
 
     return (
         <ProductContext.Provider value={{ state, handleRemove, handleSubmitProduct }}>
             {children}
         </ProductContext.Provider>
     );
-}
+};

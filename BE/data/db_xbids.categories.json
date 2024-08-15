@@ -1,0 +1,282 @@
+[{
+  "_id": {
+    "$oid": "6681bc38e9233fa5079d08f9"
+  },
+  "name": "Kính cận",
+  "slug": "Kính cận",
+  "createdAt": {
+    "$date": "2024-06-30T20:12:40.479Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:22:23.359Z"
+  },
+  "products": [
+    {
+      "$oid": "6694e3736e255506ca71559d"
+    },
+    {
+      "$oid": "6681a2778a37f4356f757fe5"
+    },
+    {
+      "$oid": "6681a2728a37f4356f757fe2"
+    },
+    {
+      "$oid": "668189d01d99fdc04ec2b56f"
+    },
+    {
+      "$oid": "668e449737c2f24de0bc54ef"
+    },
+    {
+      "$oid": "668e449737c2f24de0bc54ef"
+    },
+    {
+      "$oid": "66b8eefae1a8111acdf1af82"
+    },
+    {
+      "$oid": "66b8f329e1a8111acdf1b0dd"
+    },
+    {
+      "$oid": "66b8f329e1a8111acdf1b0dd"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681bc55e9233fa5079d08ff"
+  },
+  "name": "Kính chống ánh sáng xanh",
+  "slug": "Kính chống ánh sáng xanh",
+  "createdAt": {
+    "$date": "2024-06-30T20:13:09.972Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:54:14.095Z"
+  },
+  "products": [
+    {
+      "$oid": "6681be9109a124eb4cbab3be"
+    },
+    {
+      "$oid": "6681c1a9f8bf687ce5588da9"
+    },
+    {
+      "$oid": "6681c171349e38f60731cb83"
+    },
+    {
+      "$oid": "6681be9109a124eb4cbab3be"
+    },
+    {
+      "$oid": "6681be5b97373257c576dc6c"
+    },
+    {
+      "$oid": "6681be4997373257c576dc69"
+    },
+    {
+      "$oid": "669be5ca5c874cc63d946b34"
+    },
+    {
+      "$oid": "669be5ca5c874cc63d946b34"
+    },
+    {
+      "$oid": "669be5ca5c874cc63d946b34"
+    },
+    {
+      "$oid": "669be5ca5c874cc63d946b34"
+    },
+    {
+      "$oid": "669be5ca5c874cc63d946b34"
+    },
+    {
+      "$oid": "66a008834d22304a09cba389"
+    },
+    {
+      "$oid": "66b8f08de1a8111acdf1afd5"
+    },
+    {
+      "$oid": "66b8f1ade1a8111acdf1b05f"
+    },
+    {
+      "$oid": "66b8fac6e1a8111acdf1b3c8"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6681c25838fe3df384cc8da6"
+  },
+  "name": "Gọng kính",
+  "slug": "Gọng kính",
+  "createdAt": {
+    "$date": "2024-06-30T20:38:48.509Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:59:43.672Z"
+  },
+  "products": [
+    {
+      "$oid": "6681c29f38fe3df384cc8dad"
+    },
+    {
+      "$oid": "668263a7e70e01138bd04d86"
+    },
+    {
+      "$oid": "6681a2e58a37f4356f757feb"
+    },
+    {
+      "$oid": "6681982b60054388e88c69ae"
+    },
+    {
+      "$oid": "66a006c34d22304a09cba23a"
+    },
+    {
+      "$oid": "66b6288320e893fc3f808e39"
+    },
+    {
+      "$oid": "66b8f08de1a8111acdf1afd5"
+    },
+    {
+      "$oid": "66b8f4b9e1a8111acdf1b18c"
+    },
+    {
+      "$oid": "66b8f50ae1a8111acdf1b1ac"
+    },
+    {
+      "$oid": "66b8f55be1a8111acdf1b1be"
+    },
+    {
+      "$oid": "66b8f5b0e1a8111acdf1b1d0"
+    },
+    {
+      "$oid": "66b8f4b9e1a8111acdf1b18c"
+    },
+    {
+      "$oid": "66b8f50ae1a8111acdf1b1ac"
+    },
+    {
+      "$oid": "66b8f55be1a8111acdf1b1be"
+    },
+    {
+      "$oid": "66b8f5b0e1a8111acdf1b1d0"
+    },
+    {
+      "$oid": "66b8f5b0e1a8111acdf1b1d0"
+    },
+    {
+      "$oid": "66b8fb1ce1a8111acdf1b3e8"
+    },
+    {
+      "$oid": "66b8fb1ce1a8111acdf1b3e8"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "668266c7d4da294750600c95"
+  },
+  "name": "Kính râm",
+  "slug": "Kính râm",
+  "createdAt": {
+    "$date": "2024-07-01T08:20:23.170Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T17:48:40.328Z"
+  },
+  "products": [
+    {
+      "$oid": "6681a28c8a37f4356f757fe8"
+    },
+    {
+      "$oid": "668188fcdfd6e35c12fe25bb"
+    },
+    {
+      "$oid": "66aae4cbe5024e25753610d0"
+    },
+    {
+      "$oid": "66aae842e5024e2575361105"
+    },
+    {
+      "$oid": "66aae842e5024e2575361105"
+    },
+    {
+      "$oid": "66aaec28e5024e2575361142"
+    },
+    {
+      "$oid": "66aae4cbe5024e25753610d0"
+    },
+    {
+      "$oid": "66b8f08de1a8111acdf1afd5"
+    },
+    {
+      "$oid": "66b8f978e1a8111acdf1b357"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66aae7ac1bc980143c98404f"
+  },
+  "name": "Kính chính hãng",
+  "slug": "Kính chính hãng",
+  "products": [
+    {
+      "$oid": "66aae7d01bc980143c984050"
+    },
+    {
+      "$oid": "66aaec98e5024e257536115f"
+    },
+    {
+      "$oid": "66aaed1ee5024e257536117c"
+    },
+    {
+      "$oid": "66b627da20e893fc3f808de3"
+    },
+    {
+      "$oid": "66b627fc20e893fc3f808e19"
+    },
+    {
+      "$oid": "66b6288320e893fc3f808e39"
+    },
+    {
+      "$oid": "66b628be20e893fc3f808e82"
+    },
+    {
+      "$oid": "66b6295720e893fc3f808ed8"
+    },
+    {
+      "$oid": "66b8f9c9e1a8111acdf1b377"
+    },
+    {
+      "$oid": "66b8fa04e1a8111acdf1b389"
+    }
+  ],
+  "updatedAt": {
+    "$date": "2024-08-11T17:51:00.508Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66aaee2f1bc980143c98405a"
+  },
+  "name": "Tròng kính cận đổi màu",
+  "slug": "Tròng kính cận đổi màu",
+  "products": [
+    {
+      "$oid": "66aaee551bc980143c98405b"
+    },
+    {
+      "$oid": "66aaef3ce5024e25753611b1"
+    },
+    {
+      "$oid": "66b8f65fe1a8111acdf1b22a"
+    },
+    {
+      "$oid": "66b8f911e1a8111acdf1b2d9"
+    },
+    {
+      "$oid": "66b8f911e1a8111acdf1b2d9"
+    }
+  ],
+  "updatedAt": {
+    "$date": "2024-08-11T17:47:25.878Z"
+  }
+}]

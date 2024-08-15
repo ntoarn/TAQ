@@ -34,12 +34,12 @@ const ListUser = () => {
                 <thead className="bg-gray-100">
                     <tr>
                         <th className="py-2 px-4 border-b">#</th>
-                        <th className="py-2 px-4 border-b">Name</th>
+                        <th className="py-2 px-4 border-b">Họ tên</th>
                         <th className="py-2 px-4 border-b">Email</th>
-                        <th className="py-2 px-4 border-b">Address</th>
-                        <th className="py-2 px-4 border-b">Phone</th>
-                        <th className="py-2 px-4 border-b">Role</th>
-                        <th className="py-2 px-4 border-b">Action</th>
+                        <th className="py-2 px-4 border-b">Địa chỉ</th>
+                        <th className="py-2 px-4 border-b">Số điện thoại</th>
+                        <th className="py-2 px-4 border-b">Quyền hạn</th>
+                        <th className="py-2 px-4 border-b">Hoạt động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +56,7 @@ const ListUser = () => {
                                     onClick={() => handleLockToggle(user._id!, user.isLocked!)}
                                     className={`px-4 py-2 rounded ${user.isLocked ? 'bg-red-500' : 'bg-green-500'} text-white`}
                                 >
-                                    {user.isLocked ? 'Unlock' : 'Lock'}
+                                    {user.isLocked ? 'Mở khóa' : 'Khóa'}
                                 </button>
                             </td>
                         </tr>
